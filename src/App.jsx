@@ -2,20 +2,14 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { DropdownMenu } from "./Components/DropdownMenu";
+import * as Pages from "./Pages";
 
 function App() {
   return (
     <>
+      <DropdownMenu />
       <Routes>
-        <Route path="/" element={<DropdownMenu />}>
-          {/* <Route path="/" element={<Pages.HomePage />}></Route>
-          <Route path="/shows">
-            <Route index element={<Pages.ShowsPage />}></Route>
-            <Route path="/shows/:id" element={<Pages.ShowPage />}></Route>
-          </Route>
-          <Route path="/search" element={<Pages.SearchPage />}></Route>
-          <Route path="*" element={<Pages.NotFoundPage />}></Route> */}
-        </Route>
+        <Route path="/" element={<Pages.HomePage />}></Route>
       </Routes>
     </>
   );

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./DropdownMenu.css";
 import ArrowIcon from "../ArrowIcon";
 import { HamburgerIcon, CloseIcon } from "../Icons";
+import { Link } from "react-router-dom";
 
 export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ export const DropdownMenu = () => {
             <ul>
               <li>
                 <ArrowIcon />
-                HOME
+                <Link to="/">HOME</Link>
               </li>
               <li>
                 <ArrowIcon />
