@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./Login.css";
+import RegisterForm from "../RegisterForm";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,21 +13,28 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-box">
+      <h1>LOGIN</h1>
+      <form onSubmit={handleSubmit} className="form-area">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
+
+      <Link to="/register">
+        <h3>NOT A MEMBER? REGISTER HERE</h3>
+      </Link>
+    </div>
   );
 };
 

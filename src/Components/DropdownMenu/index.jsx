@@ -4,11 +4,15 @@ import "./DropdownMenu.css";
 import ArrowIcon from "../ArrowIcon";
 import { HamburgerIcon, CloseIcon } from "../Icons";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="dropdown">
@@ -17,11 +21,18 @@ export const DropdownMenu = () => {
       </button>
       {isOpen && (
         <div className="menu-content">
-          <div className="main-rect">
+          <motion.div
+            className="main-rect"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <ul>
               <li>
                 <ArrowIcon />
-                <Link to="/">HOME</Link>
+                <Link to="/" onClick={closeMenu}>
+                  HOME
+                </Link>
               </li>
               <li>
                 <ArrowIcon />
@@ -37,10 +48,12 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
-                LOG IN/OUT
+                <Link to="/login" onClick={closeMenu}>
+                  LOG IN/OUT
+                </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>
