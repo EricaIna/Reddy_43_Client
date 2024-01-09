@@ -1,27 +1,28 @@
-import React from 'react';
-import { RegisterForm } from '../../Components'; 
+import React from "react";
+import { RegisterForm } from "../../Components";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const handleRegisterSubmit = async (userData) => {
     try {
-      const response = await fetch('http://localhost:4000/signup', { 
-        method: 'POST',
+      const response = await fetch("http://localhost:4000/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
 
       const data = await response.json();
-      console.log(data); 
+      navigate("/login");
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error("Error during registration:", error);
     }
   };
 
   return (
     <div>
-      <h1>Register</h1>
       <RegisterForm onSubmit={handleRegisterSubmit} />
     </div>
   );

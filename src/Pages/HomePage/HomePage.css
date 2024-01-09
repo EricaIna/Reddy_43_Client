@@ -12,6 +12,15 @@
   background-repeat: no-repeat;
 } */
 
+.background {
+  padding-right: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 h1 {
   font-size: 5rem;
   font-family: "Big Shoulders Display", sans-serif;
