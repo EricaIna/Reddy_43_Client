@@ -43,6 +43,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 影 */
   height: 80vh;
 }
+.main-rect a {
+  color: inherit;
+}
 
 ul {
   list-style: none;
