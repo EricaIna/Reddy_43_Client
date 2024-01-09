@@ -1,9 +1,23 @@
-import React from 'react';
-import './App.css'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import { DropdownMenu } from "./Components/DropdownMenu";
 
 function App() {
   return (
-    <h1>App</h1>
+    <>
+      <Routes>
+        <Route path="/" element={<DropdownMenu />}>
+          {/* <Route path="/" element={<Pages.HomePage />}></Route>
+          <Route path="/shows">
+            <Route index element={<Pages.ShowsPage />}></Route>
+            <Route path="/shows/:id" element={<Pages.ShowPage />}></Route>
+          </Route>
+          <Route path="/search" element={<Pages.SearchPage />}></Route>
+          <Route path="*" element={<Pages.NotFoundPage />}></Route> */}
+        </Route>
+      </Routes>
+    </>
   );
 }
 
