@@ -13,6 +13,7 @@ const RegisterForm = ({ onSubmit }) => {
 
   return (
     <div className="register-box">
+      <h1>REGISTER</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
