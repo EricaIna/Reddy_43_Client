@@ -4,34 +4,34 @@
   box-sizing: border-box;
 }
 
-/* 全体のドロップダウンコンテナを中央に配置 */
 .dropdown {
   position: relative;
   display: flex;
   justify-content: right;
 }
 
-/* メニューアイコンのスタイル */
+/* ICON */
 .menu-icon {
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: absolute;
-  right: 10px; /* 右端からの距離 */
-  top: 10px; /* トップからの距離 */
+  right: 10px;
+  top: 10px;
   transition: all 0.3s ease;
 }
 .menu-icon:hover {
-  transform: scale(1.1); /* ホバー時に少し大きくする */
+  transform: scale(1.1);
 }
 
-/* メニューコンテンツのスタイル */
+/* MENU CONTENTS */
 .menu-content {
+  margin-top: 80px;
   position: absolute;
-  top: 100%; /* ボタンの直下に配置 */
-  left: 50%; /* 左から50%の位置に */
-  transform: translateX(-50%); /* X軸に沿って-50%で中央揃え */
-  width: 80%; /* 必要に応じて調整 */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
   z-index: 99;
 }
 
@@ -70,14 +70,14 @@ li {
 
 .arrow-icon {
   margin-right: 20px;
-  opacity: 0; /* 最初は見えない */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 li:hover .arrow-icon {
-  opacity: 1; /* ホバー時に矢印を表示 */
+  opacity: 1;
 }
-/* アニメーションのキーフレーム */
+
 @keyframes arrowAnimation {
   0% {
     transform: translateX(-100%);
@@ -93,7 +93,6 @@ li:hover .arrow-icon {
   }
 }
 
-/* ホバー時にアニメーションを適用 */
 li:hover .arrow-icon path {
   animation: arrowAnimation 2s linear infinite;
 }
