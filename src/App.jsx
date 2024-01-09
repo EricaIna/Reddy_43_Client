@@ -10,6 +10,8 @@ function App() {
       <DropdownMenu />
       <Routes>
         <Route path="/" element={<Pages.HomePage />}></Route>
+        <Route path="/login" element={<Pages.LoginPage/>}/>
+        <Route path="/register" element={<Pages.RegisterPage/>}/>
       </Routes>
     </>
   );
