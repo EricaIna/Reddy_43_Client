@@ -4,3 +4,4 @@ Pipfile.lock
 venv/
 .coverage
 node_modules
+.DS_Store
