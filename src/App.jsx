@@ -1,9 +1,17 @@
-import React from 'react';
-import './App.css'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import { DropdownMenu } from "./Components/DropdownMenu";
+import * as Pages from "./Pages";
 
 function App() {
   return (
-    <h1>App</h1>
+    <>
+      <DropdownMenu />
+      <Routes>
+        <Route path="/" element={<Pages.HomePage />}></Route>
+      </Routes>
+    </>
   );
 }
 
