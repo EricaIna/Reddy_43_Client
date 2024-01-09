@@ -9,6 +9,9 @@ export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="dropdown">
@@ -21,7 +24,9 @@ export const DropdownMenu = () => {
             <ul>
               <li>
                 <ArrowIcon />
-                <Link to="/">HOME</Link>
+                <Link to="/" onClick={closeMenu}>
+                  HOME
+                </Link>
               </li>
               <li>
                 <ArrowIcon />
@@ -37,7 +42,9 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
-                LOG IN/OUT
+                <Link to="/login" onClick={closeMenu}>
+                  LOG IN/OUT
+                </Link>
               </li>
             </ul>
           </div>

@@ -45,6 +45,16 @@
 }
 .main-rect a {
   color: inherit;
+  text-decoration: none;
+}
+
+.main-rect a:hover {
+  text-decoration: underline;
+}
+
+.main-rect a:active,
+.main-rect a:focus {
+  text-decoration: underline;
 }
 
 ul {
