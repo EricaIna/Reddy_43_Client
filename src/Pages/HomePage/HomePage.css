@@ -28,25 +28,42 @@ h1 {
 
 .neon-text {
   color: #d2e10a;
-
-  /* テキストの影を設定 */
-  text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a,
-    /* 中程度の黄色の影 */ 0 0 30px #d2e10a,
-    /* 外側の黄色の影 */ 0 0 40px #d2e10a,
-    /* より外側の黄色の影 */ 0 0 70px rgba(255, 255, 255, 0.5); /* 白色の輝き */
-
-  animation: neon-glow 1.5s linear infinite;
+  text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
+    0 0 40px #d2e10a;
+  animation: flicker 1.5s linear infinite;
 }
-@keyframes neon-glow {
-  0% {
+
+/* @keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 4px #d2e10a, 0 0 11px #d2e10a, 0 0 19px #d2e10a,
+      0 0 40px #d2e10a, 0 0 80px #d2e10a, 0 0 90px #d2e10a, 0 0 100px #d2e10a,
+      0 0 150px #d2e10a;
+  }
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+} */
+
+@keyframes flicker {
+  0%,
+  100% {
     text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
-      0 0 40px #d2e10a, 0 0 70px rgba(255, 255, 255, 0.5);
+      0 0 40px #d2e10a;
+  }
+  25%,
+  75% {
+    text-shadow: 0 0 20px #d2e10a, 0 0 30px #d2e10a, 0 0 40px #d2e10a,
+      0 0 50px #d2e10a;
   }
   50% {
-    text-shadow: 0 0 20px #d2e10a, 0 0 30px #d2e10a, 0 0 40px #d2e10a,
-      0 0 50px #d2e10a, 0 0 100px rgba(255, 255, 255, 0.9);
-  }
-  100% {
     text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
       0 0 40px #d2e10a, 0 0 70px rgba(255, 255, 255, 0.5);
   }
