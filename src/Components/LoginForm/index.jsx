@@ -16,6 +16,7 @@ const LoginForm = ({ onLogin }) => {
       <h1>LOGIN</h1>
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
+          className="input-area"
           type="email"
           placeholder="Email"
           value={email}
@@ -23,13 +24,19 @@ const LoginForm = ({ onLogin }) => {
           role="Email"
         />
         <input
+          className="input-area"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           role="Password"
         />
-        <input role='submit' className='signup-btn' type='submit' value='LOGIN' />
+        <input
+          role="submit"
+          className="signup-btn"
+          type="submit"
+          value="LOGIN"
+        />
       </form>
 
       <Link to="/register">
