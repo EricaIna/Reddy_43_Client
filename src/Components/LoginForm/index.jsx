@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Login.css";
-import RegisterForm from "../RegisterForm";
 import { Link } from "react-router-dom";
 
 const LoginForm = ({ onLogin }) => {
@@ -15,20 +14,22 @@ const LoginForm = ({ onLogin }) => {
   return (
     <div className="login-box">
       <h1>LOGIN</h1>
-      <form onSubmit={handleSubmit} className="form-area">
+      <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          role="Email"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          role="Password"
         />
-        <button type="submit">Login</button>
+        <input role='submit' className='signup-btn' type='submit' value='LOGIN' />
       </form>
 
       <Link to="/register">
