@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,12 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-box">
+    <motion.div
+      className="login-box"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
       <h1>LOGIN</h1>
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
@@ -31,18 +37,20 @@ const LoginForm = ({ onLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
           role="Password"
         />
-        <input
+        <motion.input
           role="submit"
           className="signup-btn"
           type="submit"
           value="LOGIN"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         />
       </form>
 
       <Link to="/register">
         <h3>NOT A MEMBER? REGISTER HERE</h3>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

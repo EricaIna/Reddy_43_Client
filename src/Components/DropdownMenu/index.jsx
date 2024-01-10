@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Dropdownmenu.css";
 import ArrowIcon from "../ArrowIcon";
 import { HamburgerIcon, CloseIcon } from "../Icons";
@@ -8,6 +8,16 @@ import { motion } from "framer-motion";
 
 export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const body = document.body;
+    const originalStyle = window.getComputedStyle(body).overflow;
+    body.style.overflow = isOpen ? "hidden" : originalStyle;
+
+    return () => {
+      body.style.overflow = originalStyle;
+    };
+  }, [isOpen]);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const closeMenu = () => {

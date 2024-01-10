@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const RegisterForm = ({ onSubmit }) => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,12 @@ const RegisterForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className="register-box">
+    <motion.div
+      className="register-box"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
       <h1>REGISTER</h1>
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
@@ -40,17 +46,19 @@ const RegisterForm = ({ onSubmit }) => {
           onChange={(e) => setName(e.target.value)}
           role="username"
         />
-        <input
+        <motion.input
           role="submit"
           className="signup-btn"
           type="submit"
           value="REGISTER"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         />
       </form>
       <Link to="/login">
         <h3>Already have an account? Click here to login!</h3>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
