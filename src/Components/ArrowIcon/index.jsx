@@ -2,7 +2,7 @@
 import React from "react";
 
 const ArrowIcon = () => (
-  <svg
+  <svg role="svg"
     className="arrow-icon"
     width="40"
     height="40"
