@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Movies } from "../../Components/Movies";
 import "./HomePage.css";
+import { Upcoming } from "../../Components/Upcoming";
 
 const HomePage = () => {
   return (
@@ -12,7 +13,7 @@ const HomePage = () => {
           <em>join us now</em>
         </div>
       </div>
-      <Movies />
+      <Upcoming />
     </>
   );
 };
