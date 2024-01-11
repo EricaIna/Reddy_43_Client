@@ -35,7 +35,7 @@ const ListPage = () => {
     genreIds.map((id) => genres[id]).filter((name) => name);
 
   return (
-    <div>
+    <div className="movies">
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
