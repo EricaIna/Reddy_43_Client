@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const MovieCard = ({ title, poster, summary, year, genre }) => {
   return (
-    <div>
+    <div role='card'>
       <h3>{title}</h3>
       <img src={poster} alt={title} />
       <p>{summary}</p>
@@ -12,4 +12,4 @@ const MovieCard = ({ title, poster, summary, year, genre }) => {
   );
 };
 
-export default MovieCard
+export default MovieCard;

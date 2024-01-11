@@ -34,9 +34,9 @@ function App() {
           <Route
             path="/list"
             element={
-              <ProtectedRoute>
-                <Pages.ListPage />
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              <Pages.ListPage />
+              // </ProtectedRoute>
             }
           />
           <Route path="/list" element={<Pages.ListPage />} />
