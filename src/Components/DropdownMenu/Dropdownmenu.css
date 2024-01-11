@@ -27,12 +27,14 @@
 
 /* MENU CONTENTS */
 .menu-content {
+  background: #000000a8;
   margin-top: 80px;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
+  height: 90vh;
   z-index: 99;
 }
 
@@ -43,6 +45,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 影 */
   height: 80vh;
+  width: 60%;
+  margin: 0 auto;
 }
 .main-rect a {
   color: inherit;

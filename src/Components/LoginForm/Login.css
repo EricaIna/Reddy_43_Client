@@ -5,9 +5,9 @@ body {
 }
 
 .login-box {
-  width: 50%;
+  width: 400px;
   background-color: white;
-  height: 450px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@ body {
   border-radius: 20px;
   border: 1px solid #d2e10a;
   box-shadow: 0 0 5px #d2e10a, 0 0 10px #d2e10a, 0 0 15px #d2e10a,
-    0 0 40px #d2e10a, 0 0 70px rgba(255, 255, 255, 0.5); /* ネオン効果の設定 */
+    0 0 40px #d2e10a, 0 0 70px rgba(255, 255, 255, 0.5);
   animation: neon-glow 1.5s linear infinite;
 }
 @keyframes neon-glow {
@@ -41,14 +41,21 @@ body {
   justify-content: space-around;
 }
 
+h1 {
+  font-size: 5rem;
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+
 h3 {
   text-align: center;
   font-size: 1.5rem;
   color: #393838;
+  padding-bottom: 30px;
 }
 
 .input-area {
-  width: 400px;
+  width: 300px;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #d2e10a;
