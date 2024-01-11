@@ -58,6 +58,12 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
+                <Link to="/list" onClick={closeMenu}>
+                  ALL MOVIES
+                </Link>
+              </li>
+              <li>
+                <ArrowIcon />
                 <Link to="/login" onClick={closeMenu}>
                   LOG IN/OUT
                 </Link>
