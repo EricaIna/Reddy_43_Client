@@ -41,7 +41,7 @@ const ListPage = () => {
         {movies.map(movie => (
           <MovieCard 
             key={movie.id}
-            title={movie.original_title} 
+            title={movie.title} 
             poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
             summary={movie.overview} 
             year={movie.release_date} 
