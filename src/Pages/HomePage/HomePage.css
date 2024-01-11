@@ -1,12 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .homePage {
   height: 100vh;
-  max-width: 1440px;
+
+  background-image: url("../../assets/Group.png");
 }
 
 .background {
@@ -19,32 +14,37 @@
   /* background-image: url("../../assets/Group.png"); */
 }
 
-h1 {
-  font-size: 8rem;
+h5 {
+  color: white;
+  font-size: 2rem;
   font-family: "Big Shoulders Display", sans-serif;
 }
 
 .neon-text {
-  color: #d2e10a;
-  text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
-    0 0 40px #d2e10a;
-  animation: flicker 1.5s linear infinite;
+  font-weight: 400;
+  margin-right: 30px;
+  font-size: 8rem;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 1000px #fff, 0 0 42px #d2e10a,
+    0 0 82px #d2e10a, 0 0 92px #d2e10a, 0 0 102px #d2e10a, 0 0 151px #d2e10a;
+  animation: flicker 2.5s infinite alternate;
 }
 
 @keyframes flicker {
   0%,
-  100% {
-    text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
-      0 0 40px #d2e10a;
-  }
+  18%,
+  22%,
   25%,
-  75% {
-    text-shadow: 0 0 20px #d2e10a, 0 0 30px #d2e10a, 0 0 40px #d2e10a,
-      0 0 50px #d2e10a;
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #d2e10a,
+      0 0 80px #d2e10a, 0 0 90px #d2e10a, 0 0 100px #d2e10a, 0 0 150px #d2e10a;
   }
-  50% {
-    text-shadow: 0 0 10px #d2e10a, 0 0 20px #d2e10a, 0 0 30px #d2e10a,
-      0 0 40px #d2e10a, 0 0 70px rgba(255, 255, 255, 0.5);
+
+  55%,
+  65% {
+    text-shadow: none;
   }
 }
 
@@ -64,4 +64,22 @@ video {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+.mainPage-btn {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 130px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #d2e10a;
+  margin: 30px 10px;
+  border-radius: 10px;
+  border: none;
+  color: #393838;
+}
+
+.btn-area a {
+  color: #393838;
+  font-size: 2rem;
+  text-decoration: none;
 }
