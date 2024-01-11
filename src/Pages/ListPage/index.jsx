@@ -33,22 +33,22 @@ const ListPage = () => {
 
   const getGenreNames = (genreIds) =>
     genreIds.map((id) => genres[id]).filter((name) => name);
-
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          title={movie.original_title}
-          poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          summary={movie.overview}
-          year={movie.release_date}
-          genre={getGenreNames(movie.genre_ids)}
-        />
-      ))}
-    </div>
-  );
-};
+  
+    return (
+      <div>
+        {movies.map(movie => (
+          <MovieCard 
+            key={movie.id}
+            title={movie.title} 
+            poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+            summary={movie.overview} 
+            year={movie.release_date} 
+            genre={getGenreNames(movie.genre_ids)}
+          />
+        ))}
+      </div>
+    );
+}
 
 export default ListPage;
 
