@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export const HamburgerIcon = () => (
+  <div role="ham">
   <motion.svg
     width="70"
     height="70"
@@ -25,9 +26,11 @@ export const HamburgerIcon = () => (
     <rect x="10" y="40" width="40" height="3" fill="#EEFF04" /> //
     サイズと位置を調整
   </motion.svg>
+  </div>
 );
 
 export const CloseIcon = () => (
+  <div role="close">
   <motion.svg
     width="70"
     height="70"
@@ -50,4 +53,5 @@ export const CloseIcon = () => (
     <path d="M25 25 L45 45" stroke="#EEFF04" strokeWidth="2" /> // サイズを調整
     <path d="M45 25 L25 45" stroke="#EEFF04" strokeWidth="2" /> // サイズを調整
   </motion.svg>
+  </div>
 );

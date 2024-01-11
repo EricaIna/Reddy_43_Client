@@ -12,7 +12,7 @@ function App() {
       <AnimatePresence>
         <DropdownMenu />
         <Routes>
-          <Route path="/" element={<ProtectedRoute><Pages.HomePage /></ProtectedRoute>}></Route>
+          <Route path="/" element={<Pages.HomePage />}/>
           <Route path="/login" element={<Pages.LoginPage />} />
           <Route path="/register" element={<Pages.RegisterPage />} />
           <Route path="/list" element={<Pages.ListPage />} />
