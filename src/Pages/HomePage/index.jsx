@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { Movies } from "../../Components/Movies";
+
 import "./HomePage.css";
 import { Upcoming } from "../../Components/Upcoming";
 import backgroundVideo from "../../assets/bc.mp4";

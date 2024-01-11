@@ -46,7 +46,9 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
-                MOVIE GENRES
+                <Link to="/genre" onClick={closeMenu}>
+                  MOVIE GENRES
+                </Link>
               </li>
               <li>
                 <ArrowIcon />
