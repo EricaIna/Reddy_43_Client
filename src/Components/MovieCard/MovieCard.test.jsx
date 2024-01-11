@@ -5,14 +5,14 @@ import { screen, render, cleanup, fireEvent } from "@testing-library/react";
 import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
-import ArrowIcon from "./index";
+import MovieCard from "./index";
 import { BrowserRouter as Router } from 'react-router-dom';
 
-describe("ArrowIcon test", () => {
+describe("MovieCard component", () => {
     beforeEach(() => {
       render(
         <Router>
-          <ArrowIcon />
+          <MovieCard />
         </Router>
       );
     });
@@ -21,9 +21,9 @@ describe("ArrowIcon test", () => {
       cleanup();
     });
   
-    it("has an svg", () => {
-        const hasSvg = screen.getByRole("svg")
-        expect(hasSvg).toBeInTheDocument();
+    it("has a a container div named card that contains props", () => {
+        const hasCard = screen.getByRole("card")
+        expect(hasCard).toBeInTheDocument();
     });
 
     });
