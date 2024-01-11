@@ -40,6 +40,7 @@ function App() {
             }
           />
           <Route path="/list" element={<Pages.ListPage />} />
+          <Route path="/genre" element={<Pages.GenrePage />} />
         </Routes>
       </AnimatePresence>
     </>
