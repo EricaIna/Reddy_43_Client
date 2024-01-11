@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Pages.HomePage /></ProtectedRoute>}></Route>
           <Route path="/login" element={<Pages.LoginPage />} />
           <Route path="/register" element={<Pages.RegisterPage />} />
-          <Route path="/list" element={<ProtectedRoute><Pages.ListPage /></ProtectedRoute>} />
+          <Route path="/list" element={<Pages.ListPage />} />
         </Routes>
       </AnimatePresence>
     </>
