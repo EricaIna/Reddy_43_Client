@@ -23,6 +23,7 @@
 }
 
 .genre-item {
+  width: 150px;
   display: inline-flex;
   font-size: 2rem;
   margin-bottom: 10px;

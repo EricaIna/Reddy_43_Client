@@ -1,6 +1,7 @@
 import "./GenrePage.css";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const GenrePage = () => {
   const [genres, setGenres] = useState([]);
@@ -58,38 +59,42 @@ const GenrePage = () => {
       <div className="genre-list-container">
         <div className="genre-list">
           {firstHalfGenres.map((genre) => (
-            <motion.li
-              key={genre.id}
-              className="genre-item"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <div className="genre-img-cover"></div>
-              <img
-                src={getGenreImageUrl(genre.name)}
-                alt={genre.name}
-                className="genre-img"
-              />
-              {genre.name}
-            </motion.li>
+            <Link to={`/movies?genre=${genre.id}`} key={genre.id}>
+              <motion.li
+                key={genre.id}
+                className="genre-item"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <div className="genre-img-cover"></div>
+                <img
+                  src={getGenreImageUrl(genre.name)}
+                  alt={genre.name}
+                  className="genre-img"
+                />
+                {genre.name}
+              </motion.li>
+            </Link>
           ))}
         </div>
         <div className="genre-list">
           {secondHalfGenres.map((genre) => (
-            <motion.li
-              key={genre.id}
-              className="genre-item"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <div className="genre-img-cover"></div>
-              <img
-                src={getGenreImageUrl(genre.name)}
-                alt={genre.name}
-                className="genre-img"
-              />
-              {genre.name}
-            </motion.li>
+            <Link to={`/movies?genre=${genre.id}`} key={genre.id}>
+              <motion.li
+                key={genre.id}
+                className="genre-item"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <div className="genre-img-cover"></div>
+                <img
+                  src={getGenreImageUrl(genre.name)}
+                  alt={genre.name}
+                  className="genre-img"
+                />
+                {genre.name}
+              </motion.li>
+            </Link>
           ))}
         </div>
       </div>

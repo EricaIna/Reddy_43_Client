@@ -11,13 +11,10 @@ const HomePage = () => {
     <>
       <div className="homePage">
         <div className="background">
-          {/* <video autoPlay loop muted>
-            <source src={backgroundVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video> */}
-
-          <h1 className="neon-text">MOVIE TITLE</h1>
-          <h5>something message for the client.... blur blur blur </h5>
+          <h1 className="neon-text">
+            THE MOVIES<br></br>that makes us
+          </h1>
+          <h5>A web site for everyone, with something for anyone</h5>
           <div className="btn-area">
             <motion.button
               className="mainPage-btn"
