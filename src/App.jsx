@@ -41,6 +41,8 @@ function App() {
           />
           <Route path="/list" element={<Pages.ListPage />} />
           <Route path="/genre" element={<Pages.GenrePage />} />
+          <Route path="/top" element={<Pages.TopPage />} />
+          <Route path="/upcoming" element={<Pages.UpcomingPage />} />
         </Routes>
       </AnimatePresence>
     </>

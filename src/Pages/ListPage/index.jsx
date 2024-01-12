@@ -40,7 +40,7 @@ const ListPage = () => {
         <MovieCard
           key={movie.id}
           title={movie.title}
-          poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          poster={movie.poster_path}
           summary={movie.overview}
           year={movie.release_date}
           genre={getGenreNames(movie.genre_ids)}
