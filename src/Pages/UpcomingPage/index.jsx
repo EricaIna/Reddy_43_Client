@@ -26,7 +26,7 @@ const UpcomingPage = () => {
         <MovieCard
           key={movie.id}
           title={movie.title}
-          poster={movie.poster_path}
+          poster={`https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           summary={movie.overview}
           year={movie.release_date}
         />
