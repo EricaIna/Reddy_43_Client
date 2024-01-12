@@ -47,7 +47,7 @@ const GenrePage = () => {
   };
 
   return (
-    <div className="genre-page">
+    <div role="genre-return" className="genre-page">
       <h1>Genres</h1>
       <ul className="genre-list">
         {genres.map((genre) => (

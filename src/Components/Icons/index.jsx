@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export const HamburgerIcon = () => (
-  <div role="ham">
+  <div>
   <motion.svg
     width="70"
     height="70"
@@ -30,7 +30,7 @@ export const HamburgerIcon = () => (
 );
 
 export const CloseIcon = () => (
-  <div role="close">
+  <div>
   <motion.svg
     width="70"
     height="70"
