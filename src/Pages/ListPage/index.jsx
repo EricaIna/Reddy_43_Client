@@ -4,18 +4,18 @@ import "./ListPage.css";
 
 const ListPage = () => {
   const [movies, setMovies] = useState([]);
-//   const [genres, setGenres] = useState({});
+  const [genres, setGenres] = useState({});
 
   useEffect(() => {
-    // const fetchGenres = async () => {
-    //   const genreResponse = await fetch("http://localhost:4000/genres");
-    //   const genreData = await genreResponse.json();
-    //   const genreMap = genreData.genres.reduce((map, genre) => {
-    //     map[genre.id] = genre.name;
-    //     return map;
-    //   }, {});
-    //   setGenres(genreMap);
-    // };
+    const fetchGenres = async () => {
+      const genreResponse = await fetch("http://localhost:4000/genres");
+      const genreData = await genreResponse.json();
+      const genreMap = genreData.genres.reduce((map, genre) => {
+        map[genre.id] = genre.name;
+        return map;
+      }, {});
+      setGenres(genreMap);
+    };
 
     const fetchMovies = async () => {
       try {
@@ -27,12 +27,12 @@ const ListPage = () => {
         console.log("Error Fetching Data");
       }
     };
-    // fetchGenres();
+    fetchGenres();
     fetchMovies();
   }, []);
 
-//   const getGenreNames = (genreIds) =>
-//     genreIds.map((id) => genres[id]).filter((name) => name);
+  const getGenreNames = (genreIds) =>
+    genreIds.map((id) => genres[id]).filter((name) => name);
 
   return (
     <div className="movies">
@@ -43,7 +43,7 @@ const ListPage = () => {
           poster={movie.poster_path}
           summary={movie.overview}
           year={movie.release_date}
-        //   genre={getGenreNames(movie.genre_ids)}
+          genre={getGenreNames(movie.genre_ids)}
         />
       ))}
     </div>
