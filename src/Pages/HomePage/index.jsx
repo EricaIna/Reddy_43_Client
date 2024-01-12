@@ -16,8 +16,8 @@ const HomePage = () => {
             Your browser does not support the video tag.
           </video> */}
 
-          <h1 className="neon-text">MOVIE TITLE</h1>
-          <h5>something message for the client.... blur blur blur </h5>
+          <h1 className="neon-text">The Movies <br></br> That Make Us</h1>
+          <h5> A website for everyone, with something for anyone </h5>
           <div className="btn-area">
             <motion.button
               className="mainPage-btn"

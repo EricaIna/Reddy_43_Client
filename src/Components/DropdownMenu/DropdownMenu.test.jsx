@@ -27,4 +27,17 @@ describe("Drop down menu", () => {
     expect(hasNav).toBeInTheDocument();
   });
 
+  // it("displays a nav bar with 5 links", () => {
+  //   const nav = screen.getByRole("list")
+  //   expect(nav).toBeInTheDocument
+  //   expect(nav.childNodes.length).toBe(5)
+  // })
+
 });
+
+
+// it("displays the nav bar with 3 links and one image", () => {
+//   const nav = screen.getByRole("navigation");
+//   expect(nav).toBeInTheDocument;
+//   expect(nav.childNodes.length).toBe(4);
+// });
