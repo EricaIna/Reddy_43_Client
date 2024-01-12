@@ -8,7 +8,7 @@ const UpcomingPage = () => {
 
     const fetchMovies = async () => {
       try {
-        const response = await fetch("http://localhost:4000/movies/upcoming");
+        const response = await fetch("http://localhost:4000/movies/recent");
         const data = await response.json();
         console.log(data);
         setMovies(data.results);
