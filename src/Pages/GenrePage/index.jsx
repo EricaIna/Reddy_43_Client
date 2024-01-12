@@ -19,6 +19,7 @@ const GenrePage = () => {
     fetchGenres();
   }, []);
 
+  //  get genre image
   const getGenreImageUrl = (genreName) => {
     const formattedGenreName = genreName.replace(/ /g, "_");
     const imageMap = {
@@ -46,27 +47,52 @@ const GenrePage = () => {
     return imageMap[genreName] || "https://example.com/default.jpg";
   };
 
+  //devide genre into 2 lines
+  const halfIndex = Math.ceil(genres.length / 2);
+  const firstHalfGenres = genres.slice(0, halfIndex);
+  const secondHalfGenres = genres.slice(halfIndex);
+
   return (
     <div className="genre-page">
       <h1>Genres</h1>
-      <ul className="genre-list">
-        {genres.map((genre) => (
-          <motion.li
-            key={genre.id}
-            className="genre-item"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="genre-img-cover"></div>
-            <img
-              src={getGenreImageUrl(genre.name)}
-              alt={genre.name}
-              className="genre-img"
-            />
-            {genre.name}
-          </motion.li>
-        ))}
-      </ul>
+      <div className="genre-list-container">
+        <div className="genre-list">
+          {firstHalfGenres.map((genre) => (
+            <motion.li
+              key={genre.id}
+              className="genre-item"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <div className="genre-img-cover"></div>
+              <img
+                src={getGenreImageUrl(genre.name)}
+                alt={genre.name}
+                className="genre-img"
+              />
+              {genre.name}
+            </motion.li>
+          ))}
+        </div>
+        <div className="genre-list">
+          {secondHalfGenres.map((genre) => (
+            <motion.li
+              key={genre.id}
+              className="genre-item"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <div className="genre-img-cover"></div>
+              <img
+                src={getGenreImageUrl(genre.name)}
+                alt={genre.name}
+                className="genre-img"
+              />
+              {genre.name}
+            </motion.li>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
