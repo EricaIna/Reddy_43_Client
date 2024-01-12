@@ -7,6 +7,8 @@
   padding: 20px;
   background-color: white;
   height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .genre-list {
@@ -21,6 +23,7 @@
 }
 
 .genre-item {
+  width: 150px;
   display: inline-flex;
   font-size: 2rem;
   margin-bottom: 10px;
