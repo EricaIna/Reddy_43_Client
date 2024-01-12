@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { DropdownMenu } from "./Components/DropdownMenu";
 import * as Pages from "./Pages";
 import { AnimatePresence } from "framer-motion";
 import ProtectedRoute from "./ProtectedRoute";
+import { ScrollableSection } from "./Components";
+
 
 // function App() {
 //   return (
@@ -43,6 +45,7 @@ function App() {
           <Route path="/genre" element={<Pages.GenrePage />} />
           <Route path="/top" element={<Pages.TopPage />} />
           <Route path="/upcoming" element={<Pages.UpcomingPage />} />
+          <Route path="/scroll" element={<ScrollableSection/>}/>
         </Routes>
       </AnimatePresence>
     </>
