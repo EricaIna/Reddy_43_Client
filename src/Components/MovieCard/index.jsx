@@ -6,7 +6,7 @@ const MovieCard = ({ title, poster, summary, year, genre }) => {
       <img src={poster} alt={title} />
       <h3>{title}</h3>
       <p className="summary">{summary}</p>
-      <p>{year}</p>
+      <p>{year.substring(0,4)}</p>
       <p>{genre}</p>
     </div>
   );
