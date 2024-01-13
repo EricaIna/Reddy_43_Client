@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 
 import "./HomePage.css";
 import { Upcoming } from "../../Components/Upcoming";
-import backgroundVideo from "../../assets/bc.mp4";
+
 import { motion } from "framer-motion";
+import GenrePage from "../GenrePage";
 
 const HomePage = () => {
   return (
@@ -33,7 +34,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       <Upcoming />
+      <GenrePage />
     </>
   );
 };

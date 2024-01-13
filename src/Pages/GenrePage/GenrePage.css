@@ -5,37 +5,49 @@
 }
 .genre-page {
   padding: 20px;
-  background-color: white;
-  /* height: 100vh; */
+  /* background-color: rgb(163, 42, 74); */
+  height: 100vh;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
 }
+h1 {
+  color: #eeff04;
+}
+
+.genre-list-container {
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
 
 .genre-list {
-  font-size: 1rem;
-
-  padding: 0;
-  gap: 12px;
-  display: flex;
-  flex-direction: row;
+  /* display: inline-flex; */
   overflow-x: auto;
-  white-space: nowrap;
-  flex-wrap: wrap;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .genre-item {
-  width: 200px;
+  background: rgb(255 255 255 / 10%);
+  width: 300px;
+  /* background: rgba(255, 255, 255, 0); */
+  /* background: white; */
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  padding: 30px 20px;
   display: inline-flex;
-  font-size: 2rem;
-  margin-bottom: 10px;
-  cursor: pointer;
-  position: relative;
-  background: transparent;
-  border: 1px solid yellow;
   flex-direction: column;
 }
 
 .genre-img {
-  width: 100px;
-  height: 130px;
+  width: 100%;
+  height: 250px;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
 }
