@@ -52,7 +52,7 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
-                MY LIST(PAGE)
+                MY LIST
               </li>
               <li>
                 <ArrowIcon />
