@@ -54,7 +54,7 @@ const GenrePage = () => {
   const secondHalfGenres = genres.slice(halfIndex);
 
   return (
-    <div role="genre-return" className="genre-page">
+    <div className="genre-page">
       <h1>Genres</h1>
       <div className="genre-list-container">
         <div className="genre-list">
