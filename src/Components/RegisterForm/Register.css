@@ -68,4 +68,6 @@ h3 {
   height: 30px;
   margin: 0 auto;
   background-color: #d2e10a;
+  border-radius: 20px;
+  cursor: pointer;
 }
