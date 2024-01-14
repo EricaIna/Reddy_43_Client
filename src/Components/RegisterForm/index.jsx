@@ -24,6 +24,14 @@ const RegisterForm = ({ onSubmit }) => {
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
           className="input-area"
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          role="username"
+        />
+        <input
+          className="input-area"
           type="email"
           placeholder="Email"
           value={email}
@@ -38,20 +46,13 @@ const RegisterForm = ({ onSubmit }) => {
           onChange={(e) => setPassword(e.target.value)}
           role="password"
         />
-        <input
-          className="input-area"
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          role="username"
-        />
+
         <motion.input
           role="submit"
           className="signup-btn"
           type="submit"
           value="REGISTER"
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1, transition: 2.1 }}
           whileTap={{ scale: 0.9 }}
         />
       </form>

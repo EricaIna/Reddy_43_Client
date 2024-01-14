@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { MovieCard } from "../../Components";
+import { motion } from "framer-motion";
 
 const TopPage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-
     const fetchMovies = async () => {
       try {
         const response = await fetch("http://localhost:4000/movies/top");
@@ -19,9 +19,13 @@ const TopPage = () => {
     fetchMovies();
   }, []);
 
-
   return (
-    <div className="movies">
+    <motion.div
+      className="movies"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
@@ -31,7 +35,7 @@ const TopPage = () => {
           year={movie.release_date}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
