@@ -84,44 +84,68 @@ const GenrePage = () => {
     return imageMap[genreName];
   };
 
+  //List animation
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <div className="genre-page container">
-      <h1>Genres</h1>
-      <motion.div
-        className="genre-list-container slider_wrapper"
-        whileTap={{ cursor: "grabbing" }}
-      >
-        <motion.div className="genre-list inner_crousel">
+    <div className="genre-page">
+      <h1 className="genre-h1">Genres</h1>
+      <motion.ul className="genre-list-container">
+        <motion.div
+          className="genre-list"
+          initial="hidden"
+          animate="visible"
+          variants={container}
+        >
           {genres.length > 0 &&
-            genres.map((genre) => (
-              <motion.div
+            genres.map((genre, index) => (
+              <motion.li
                 key={genre.id}
                 className="genre-item"
                 onClick={() => handleGenreClick(genre)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.9, duration: 0.2 }}
+                variants={item}
+                initial="hidden"
+                animate="visible"
+                transition={{
+                  ease: "easeOut",
+                  duration: 1.5,
+                  delay: index * 0.1,
+                }}
               >
-                {/* <span
-                    style={{
-                      color: "#eee",
-                      lineHeight: 1,
-                      fontSize: "4vw",
-                      marginBottom: "2vw",
-                      display: "inline-block",
-                      position: "relative",
-                    }}
-                  >
-                    {genre.name}
-                  </span> */}
-                <img
+                <motion.img
                   src={getGenreImageUrl(genre.name)}
                   alt={genre.name}
                   className="genre-img"
+                  whileHover={{
+                    scale: 1.1,
+                    cursor: "pointer",
+                    transition: { duration: 0.3 },
+                  }}
                 />
-              </motion.div>
+              </motion.li>
             ))}
         </motion.div>
-      </motion.div>
+      </motion.ul>
       <ListPage selectedGenre={selectedGenre} />
     </div>
   );
