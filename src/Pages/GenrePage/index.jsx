@@ -81,11 +81,10 @@ const GenrePage = () => {
       Western: WesternImg,
     };
 
-    return imageMap[genreName];
+    return imageMap[formattedGenreName];
   };
 
   //List animation
-
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
@@ -109,6 +108,7 @@ const GenrePage = () => {
   return (
     <div className="genre-page">
       <h1 className="genre-h1">Genres</h1>
+
       <motion.ul className="genre-list-container">
         <motion.div
           className="genre-list"
@@ -138,14 +138,19 @@ const GenrePage = () => {
                   className="genre-img"
                   whileHover={{
                     scale: 1.1,
-                    cursor: "pointer",
-                    transition: { duration: 0.3 },
+                    y: -10,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 10,
+                    },
                   }}
                 />
               </motion.li>
             ))}
         </motion.div>
       </motion.ul>
+
       <ListPage selectedGenre={selectedGenre} />
     </div>
   );
