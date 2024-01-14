@@ -8,7 +8,7 @@ expect.extend(matchers);
 import MovieCard from "./index";
 import { BrowserRouter as Router } from 'react-router-dom';
 
-describe("MovieCard component", () => {
+describe("ArrowIcon test", () => {
     beforeEach(() => {
       render(
         <Router>
@@ -21,9 +21,9 @@ describe("MovieCard component", () => {
       cleanup();
     });
   
-    it("has a a container div named card that contains props", () => {
-        const hasCard = screen.getByRole("card")
-        expect(hasCard).toBeInTheDocument();
+    it("has an image tag", () => {
+        const hasImg = screen.getByRole("img")
+        expect(hasImg).toBeInTheDocument();
     });
 
     });

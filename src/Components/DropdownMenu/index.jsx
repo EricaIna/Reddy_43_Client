@@ -25,12 +25,12 @@ export const DropdownMenu = () => {
   };
 
   return (
-    <div className="dropdown" role="nav">
+    <div className="dropdown">
       <button className="menu-icon" onClick={toggleDropdown}>
         {isOpen ? <CloseIcon /> : <HamburgerIcon />}
       </button>
       {isOpen && (
-        <div className="menu-content" role="menu-content">
+        <div className="menu-content">
           <motion.div
             className="main-rect"
             initial={{ opacity: 0 }}
