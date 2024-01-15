@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <h1>LOGIN</h1>
+      <h1 className="ligin-h1">LOGIN</h1>
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
           className="input-area"
@@ -48,7 +48,7 @@ const LoginForm = ({ onLogin }) => {
       </form>
 
       <Link to="/register">
-        <h3>NOT A MEMBER? REGISTER HERE</h3>
+        <h3 className="login-h3">NOT A MEMBER? REGISTER HERE</h3>
       </Link>
     </motion.div>
   );
