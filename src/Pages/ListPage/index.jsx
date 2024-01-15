@@ -65,6 +65,7 @@ import { MovieCard } from "../../Components";
 const ListPage = ({ selectedGenre }) => {
   const [movies, setMovies] = useState([]);
   //  const [genres, setGenres] = useState({});
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -83,17 +84,42 @@ const ListPage = ({ selectedGenre }) => {
     fetchMovies();
   }, []);
 
+  // return (
+  //   <div className="movies">
+  //     {movies.map((movie) => (
+  //       <MovieCard
+  //         key={movie.id}
+  //         title={movie.title}
+  //         poster={movie.poster_path}
+  //         summary={movie.overview}
+  //         year={movie.release_date}
+  //         genre={""}
+  //         onClick={() => setSelectedId(movie.id)} // クリック時に詳細ビューを表示
+  //       />
+  //     ))}
+  //   </div>
+  // );
   return (
     <div className="movies">
       {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          title={movie.title}
-          poster={movie.poster_path}
-          summary={movie.overview}
-          year={movie.release_date}
-          genre={""}
-        />
+        <div key={movie.id}>
+          <MovieCard
+            title={movie.title}
+            poster={movie.poster_path}
+            summary={movie.overview}
+            year={movie.release_date}
+            genre={""}
+            onClick={() => setSelectedId(movie.id)} // クリック時に詳細ビューを表示
+          />
+          {/* 選択された映画の詳細ビュー */}
+          {selectedId === movie.id && (
+            <div className="movie-detail">
+              <h2>{movie.title}</h2>
+              <p>{movie.overview}</p>
+              <button onClick={() => setSelectedId(null)}>Close</button>
+            </div>
+          )}
+        </div>
       ))}
     </div>
   );

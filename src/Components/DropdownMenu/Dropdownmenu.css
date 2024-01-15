@@ -20,9 +20,10 @@
   top: 10px;
   transition: all 0.3s ease;
   z-index: 100;
+  padding: 30px;
 }
 .menu-icon:hover {
-  transform: scale(1.1);
+  filter: brightness(0.8);
 }
 
 /* MENU CONTENTS */
