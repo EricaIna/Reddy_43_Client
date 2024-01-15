@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MovieCard } from "../../Components";
 import "./UpcomingPage.css";
+import { motion } from "framer-motion";
 
 const UpcomingPage = () => {
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,13 @@ const UpcomingPage = () => {
   return (
     <div className="upcoming-page">
       <h1 className="upcoming-h1">Upcoming and Popular</h1>
-      <div className="upcoming-movies">
+
+      <motion.div
+        className="movie-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.2 }}
+      >
         {movies.map((movie) => (
           <MovieCard
             className="upcoming-movie"
@@ -33,7 +40,7 @@ const UpcomingPage = () => {
             year={movie.release_date}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
