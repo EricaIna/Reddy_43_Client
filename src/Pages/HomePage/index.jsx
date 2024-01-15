@@ -13,7 +13,7 @@ const HomePage = () => {
       <div className="homePage">
         <div className="background">
           <h1 className="neon-text">
-            THE MOVIES<br></br>that makes us
+            THE MOVIES
           </h1>
           <h5 className="homepage-h5">
             A web site for everyone, with something for anyone

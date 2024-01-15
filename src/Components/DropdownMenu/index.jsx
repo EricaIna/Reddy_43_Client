@@ -25,7 +25,7 @@ export const DropdownMenu = () => {
   };
 
   return (
-    <div className="dropdown" role="nav">
+    <div className="dropdown">
       <button className="menu-icon" onClick={toggleDropdown}>
         {isOpen ? <CloseIcon /> : <HamburgerIcon />}
       </button>
