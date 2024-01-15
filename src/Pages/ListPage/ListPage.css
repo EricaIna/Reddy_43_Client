@@ -1,8 +1,9 @@
 .movies {
-  background-color: white;
+  /* background-color: white; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+  color: white;
 }
 
 .card {
