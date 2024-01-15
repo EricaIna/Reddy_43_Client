@@ -56,39 +56,40 @@ const GenrePage = () => {
   };
 
   return (
-    <div className="genre-page">
+    <div className="genrePage-wrapper">
       <h1 className="genre-h1">Genres</h1>
+      <div className="genre-page">
+        <motion.ul className="genre-list-container">
+          <motion.div
+            className="genre-list"
+            initial="hidden"
+            animate="visible"
+            variants={container}
+          >
+            {genres.length > 0 &&
+              genres.map((genre, index) => (
+                <motion.li
+                  key={genre.id}
+                  className="genre-item"
+                  onClick={() => handleGenreClick(genre)}
+                  whileTap={{ scale: 0.9, duration: 0.2 }}
+                  variants={item}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{
+                    ease: "easeOut",
+                    duration: 1.5,
+                    delay: index * 0.1,
+                  }}
+                >
+                  <GenreImage genreName={genre.name} />
+                </motion.li>
+              ))}
+          </motion.div>
+        </motion.ul>
 
-      <motion.ul className="genre-list-container">
-        <motion.div
-          className="genre-list"
-          initial="hidden"
-          animate="visible"
-          variants={container}
-        >
-          {genres.length > 0 &&
-            genres.map((genre, index) => (
-              <motion.li
-                key={genre.id}
-                className="genre-item"
-                onClick={() => handleGenreClick(genre)}
-                whileTap={{ scale: 0.9, duration: 0.2 }}
-                variants={item}
-                initial="hidden"
-                animate="visible"
-                transition={{
-                  ease: "easeOut",
-                  duration: 1.5,
-                  delay: index * 0.1,
-                }}
-              >
-                <GenreImage genreName={genre.name} />
-              </motion.li>
-            ))}
-        </motion.div>
-      </motion.ul>
-
-      <ListPage selectedGenre={selectedGenre} />
+        <ListPage selectedGenre={selectedGenre} />
+      </div>
     </div>
   );
 };

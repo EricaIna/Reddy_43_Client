@@ -2,19 +2,17 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 import "./HomePage.css";
-import { Upcoming } from "../../Components/Upcoming";
 
 import { motion } from "framer-motion";
 import GenrePage from "../GenrePage";
+import UpcomingPage from "../UpcomingPage";
 
 const HomePage = () => {
   return (
     <>
       <div className="homePage">
         <div className="background">
-          <h1 className="neon-text">
-            THE MOVIES
-          </h1>
+          <h1 className="neon-text">THE MOVIES</h1>
           <h5 className="homepage-h5">
             A web site for everyone, with something for anyone
           </h5>
@@ -37,7 +35,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Upcoming />
+      <UpcomingPage />
       <GenrePage />
     </>
   );
