@@ -59,7 +59,8 @@
 // ANOTHER NEW CODE🍎🍎
 
 import React, { useState, useEffect } from "react";
-import { MovieCard } from "../../Components";
+import { MovieCard } from "../../Components/MovieCard";
+import { MovieModal } from "../../Components/MovieModal";
 import "./ListPage.css";
 
 const ListPage = ({ selectedGenre }) => {
@@ -80,20 +81,12 @@ const ListPage = ({ selectedGenre }) => {
     fetchMovies();
   }, []);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      console.log("MOdal open");
-    }
-  }, [isModalOpen]);
-
+  // MODAL OPEN
   const handleMovieCardClick = (movie) => {
     setSelectedMovie(movie);
     console.log("Movie info is here:", movie);
-
     setIsModalOpen(true);
   };
-
-  // console.log(selectedMovie, "🍎");
 
   const closeModal = () => {
     setSelectedMovie(null);
@@ -114,19 +107,11 @@ const ListPage = ({ selectedGenre }) => {
         />
       ))}
 
-      {isModalOpen && selectedMovie && (
-        <div className="modal-backdrop" onClick={closeModal}>
-          <div className="modal-content">
-            <button onClick={closeModal}>Close</button>
-            <div className="description">
-              <h2>{selectedMovie.original_title}</h2>
-              <p>{selectedMovie.release_date}</p>
-              <p>{selectedMovie.overview}</p>
-              <p>{selectedMovie.vote_average}</p>
-            </div>
-          </div>
-        </div>
-      )}
+      <MovieModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        movie={selectedMovie}
+      />
     </div>
   );
 };
