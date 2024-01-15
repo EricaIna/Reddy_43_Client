@@ -56,6 +56,12 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
+                <Link to="/recommendation" onClick={closeMenu}>
+                  FILM RECOMMENDATIONS
+                </Link>
+              </li>
+              <li>
+                <ArrowIcon />
                 NEW AND POPULAR
               </li>
               <li>
