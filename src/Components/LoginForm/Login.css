@@ -41,13 +41,13 @@ body {
   justify-content: space-around;
 }
 
-h1 {
+.login-h1 {
   font-size: 5rem;
   padding-bottom: 30px;
   padding-top: 20px;
 }
 
-h3 {
+.login-h3 {
   text-align: center;
   font-size: 1.5rem;
   color: #393838;

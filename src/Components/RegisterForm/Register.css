@@ -41,13 +41,13 @@ body {
   margin-top: 30px;
 }
 
-h1 {
+.register-h1 {
   font-size: 5rem;
   padding-bottom: 30px;
   padding-left: 20px;
 }
 
-h3 {
+.register-h3 {
   text-align: center;
   font-size: 1.5rem;
   color: #393838;

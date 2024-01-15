@@ -15,7 +15,9 @@ const HomePage = () => {
           <h1 className="neon-text">
             THE MOVIES
           </h1>
-          <h5>A web site for everyone, with something for anyone</h5>
+          <h5 className="homepage-h5">
+            A web site for everyone, with something for anyone
+          </h5>
           <div className="btn-area">
             <motion.button
               className="mainPage-btn"
