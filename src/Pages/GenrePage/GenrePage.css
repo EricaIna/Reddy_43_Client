@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.genrePage-wrapper {
+  width: 100%;
+  padding: 20px;
+}
 .genre-page {
   padding: 20px;
   /* background-color: rgb(163, 42, 74); */
@@ -14,6 +19,7 @@
 .genre-h1 {
   color: #eeff04;
   font-size: 5rem;
+  padding-left: 50px;
 }
 
 .genre-list-container {
@@ -66,7 +72,7 @@
   flex-direction: column;
 }
 .genre-item:hover {
-  scale: 1.1;
+  scale: 1.05;
 }
 
 .genre-img {
