@@ -19,6 +19,7 @@ const LoginPage = () => {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('accessToken', data.access_token);
+        localStorage.setItem('userId', data.user_id);
         setLoginMessage("Login Successful Redirecting...");
         setTimeout(()=> {
           navigate('/');

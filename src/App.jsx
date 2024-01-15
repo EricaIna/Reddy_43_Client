@@ -5,7 +5,7 @@ import { DropdownMenu } from "./Components/DropdownMenu";
 import * as Pages from "./Pages";
 
 import ProtectedRoute from "./ProtectedRoute";
-import { ScrollableSection } from "./Components";
+import * as Components from "./Components";
 import { Header } from "./Components/Header";
 
 // function App() {
@@ -41,11 +41,12 @@ function App() {
               // </ProtectedRoute>
             }
           />
+          <Route path="/userlist" element={<Components.UserList/>}/>
           <Route path="/list" element={<Pages.ListPage />} />
           <Route path="/genre" element={<Pages.GenrePage />} />
           <Route path="/top" element={<Pages.TopPage />} />
           <Route path="/upcoming" element={<Pages.UpcomingPage />} />
-          <Route path="/scroll" element={<ScrollableSection />} />
+          <Route path="/scroll" element={<Components.ScrollableSection />} />
         </Route>
       </Routes>
     </>
