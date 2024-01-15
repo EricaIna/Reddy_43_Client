@@ -25,7 +25,7 @@ export const DropdownMenu = () => {
   };
 
   return (
-    <div className="dropdown" role="nav">
+    <div className="dropdown">
       <button className="menu-icon" onClick={toggleDropdown}>
         {isOpen ? <CloseIcon /> : <HamburgerIcon />}
       </button>
@@ -53,6 +53,12 @@ export const DropdownMenu = () => {
               <li>
                 <ArrowIcon />
                 MY LIST
+              </li>
+              <li>
+                <ArrowIcon />
+                <Link to="/recommendation" onClick={closeMenu}>
+                  FILM RECOMMENDATIONS
+                </Link>
               </li>
               <li>
                 <ArrowIcon />

@@ -22,7 +22,7 @@ describe('App', () => {
   
     it('renders the Home page by default', () => {
       const homePage = screen.getByRole('heading', {
-        name: /movie title/i
+        name: /THE MOVIES/i
       })
       expect(homePage).toBeInTheDocument();
     });

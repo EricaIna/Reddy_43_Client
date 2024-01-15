@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { screen, render, cleanup, fireEvent, getByText } from '@testing-library/react';
+import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import RegisterPage from './index';
+import ListPage from './index';
 import axios from "axios";
 
 
-describe('Register Page', () => {
+describe('List Page', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <RegisterPage />
+                <ListPage />
             </BrowserRouter>
         );
     });
@@ -33,8 +33,16 @@ describe('Register Page', () => {
         vi.spyOn(axios, "get").mockResolvedValueOnce({
             data: mockResult
         });
+
     });
 
-    
-
 });
+
+
+// it('should get the latest message with a spy', () => {
+//     const spy = vi.spyOn(messages, 'getLatest')
+//     expect(spy.getMockName()).toEqual('getLatest')
+
+//     expect(messages.getLatest()).toEqual(
+//       messages.items[messages.items.length - 1],
+//     )

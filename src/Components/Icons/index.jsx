@@ -37,7 +37,7 @@ export const CloseIcon = () => (
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       initial={{ rotate: 0 }}
-      // animate={{ rotate: 180, scale: 1.2, x: "-15vw", y: "10vh" }}
+      animate={{ rotate: 180, scale: 1.2, x: "-20vw" }}
       transition={{ duration: 0.5 }}
       exit={{ rotate: 0, scale: 1 }}
     >

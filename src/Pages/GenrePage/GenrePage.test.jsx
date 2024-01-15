@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { screen, render, cleanup, fireEvent, getByText } from '@testing-library/react';
+import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import RegisterPage from './index';
+import GenrePage from './index';
 import axios from "axios";
 
 
-describe('Register Page', () => {
+describe('Genre Page', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <RegisterPage />
+                <GenrePage />
             </BrowserRouter>
         );
     });
@@ -29,12 +29,21 @@ describe('Register Page', () => {
         password: "passwordTest"
     }
 
+    const mockUrl = {
+        Action: "https://example.com/action.jpg",
+    }
+
     it("gets data from fetch", async () => {
         vi.spyOn(axios, "get").mockResolvedValueOnce({
             data: mockResult
         });
+
     });
 
-    
+    it("return the correct url for known genres", () => {
+        vi.spyOn(axios, "get").mockResolvedValueOnce({
+            data: mockUrl
+        })
+    })
 
 });

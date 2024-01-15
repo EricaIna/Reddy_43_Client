@@ -56,25 +56,23 @@
 
 // export default ListPage;
 
-// NEW CODE HERE
+// ANOTHER NEW CODE🍎🍎
 
-import "./ListPage.css";
 import React, { useState, useEffect } from "react";
-import { MovieCard } from "../../Components";
+import { MovieCard } from "../../Components/MovieCard";
+import { MovieModal } from "../../Components/MovieModal";
+import "./ListPage.css";
 
 const ListPage = ({ selectedGenre }) => {
   const [movies, setMovies] = useState([]);
-  //  const [genres, setGenres] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await fetch("http://localhost:4000/movies");
         const data = await response.json();
-        console.log("MOVIES", data);
-        // filtered_data = filter selectedGenre.id === data.genre_id
-        // setMovies(filtered_data);
-
         setMovies(data);
       } catch (error) {
         console.log("Error Fetching Data");
@@ -103,6 +101,18 @@ const ListPage = ({ selectedGenre }) => {
     }
   };
 
+  // MODAL OPEN
+  const handleMovieCardClick = (movie) => {
+    setSelectedMovie(movie);
+    console.log("Movie info is here:", movie);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="movies">
       {movies.map((movie) => (
@@ -115,8 +125,15 @@ const ListPage = ({ selectedGenre }) => {
           year={movie.release_date}
           genre={""}
           onAddToList={handleAddToList}
+          onClick={() => handleMovieCardClick(movie)}
         />
       ))}
+
+      <MovieModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        movie={selectedMovie}
+      />
     </div>
   );
 };

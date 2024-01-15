@@ -6,15 +6,13 @@ import { screen, render, cleanup, fireEvent, getByText } from '@testing-library/
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import RegisterPage from './index';
-import axios from "axios";
+import TopPage from './index';
 
-
-describe('Register Page', () => {
+describe('Top Page', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <RegisterPage />
+                <TopPage />
             </BrowserRouter>
         );
     });
@@ -23,18 +21,9 @@ describe('Register Page', () => {
         cleanup();
     });
 
-    const mockResult = {
-        email: "emailTest",
-        name: "nameTest",
-        password: "passwordTest"
-    }
-
-    it("gets data from fetch", async () => {
-        vi.spyOn(axios, "get").mockResolvedValueOnce({
-            data: mockResult
-        });
-    });
-
-    
+    it("has a div with role scroll", () => {
+        const scroller = screen.getByRole("scroll")
+        expect(scroller).toBeInTheDocument();
+    })
 
 });

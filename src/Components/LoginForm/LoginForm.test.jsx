@@ -61,29 +61,10 @@ describe("Login Form component", () => {
 
   it("updates email and password values on input change", () => {
     const userInput = screen.getByRole("Email");
-    // const passInput = screen.getByRole("password");
 
     fireEvent.change(userInput, { target: { value: 'testuser' } });
-    // fireEvent.change(passInput, { target: { value: 'testpassword' } });
 
     expect(userInput.value).toBe('testuser');
-    // expect(passInput.value).toBe('testpassword');
   });
-
-  // it("calls the handleSubmit function", () => {
-  //   const form = screen.getByRole("form");
-  //   const submit = screen.getByRole("submit")
-  //   const handleSubmit = vi.fn();
-  //   console.log(handleSubmit)
-  //   const clickButton = userEvent.click(submit)
-  //   console.log(clickButton)
-  //   const isfired = fireEvent.submit(form);
-  //   console.log("isfired: ", isfired);
-
-  //   expect(handleSubmit).toHaveBeenCalledTimes(1);
-  // })
-
-
-
 
 });

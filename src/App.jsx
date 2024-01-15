@@ -43,12 +43,17 @@ function App() {
           />
           <Route path="/userlist" element={<Components.UserList/>}/>
           <Route path="/list" element={<Pages.ListPage />} />
+          <Route path="/recommendation" element={<Pages.RecommendationsPage />} />
+          <Route path="/recommendation/:id" element={<Pages.ListRecommendationsPage />} />
           <Route path="/genre" element={<Pages.GenrePage />} />
           <Route path="/top" element={<Pages.TopPage />} />
           <Route path="/upcoming" element={<Pages.UpcomingPage />} />
+
+          <Route path="/search/:id" element={<Pages.AddToRecommendationsPage/>}/>  
           <Route path="/scroll" element={<Components.ScrollableSection />} />
         </Route>
       </Routes>
+
     </>
   );
 }
