@@ -56,26 +56,22 @@
 
 // export default ListPage;
 
-// NEW CODE HERE
+// ANOTHER NEW CODE🍎🍎
 
-import "./ListPage.css";
 import React, { useState, useEffect } from "react";
 import { MovieCard } from "../../Components";
+import "./ListPage.css";
 
 const ListPage = ({ selectedGenre }) => {
   const [movies, setMovies] = useState([]);
-  //  const [genres, setGenres] = useState({});
-  const [selectedId, setSelectedId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await fetch("http://localhost:4000/movies");
         const data = await response.json();
-        console.log("MOVIES", data);
-        // filtered_data = filter selectedGenre.id === data.genre_id
-        // setMovies(filtered_data);
-
         setMovies(data);
       } catch (error) {
         console.log("Error Fetching Data");
@@ -84,43 +80,53 @@ const ListPage = ({ selectedGenre }) => {
     fetchMovies();
   }, []);
 
-  // return (
-  //   <div className="movies">
-  //     {movies.map((movie) => (
-  //       <MovieCard
-  //         key={movie.id}
-  //         title={movie.title}
-  //         poster={movie.poster_path}
-  //         summary={movie.overview}
-  //         year={movie.release_date}
-  //         genre={""}
-  //         onClick={() => setSelectedId(movie.id)} // クリック時に詳細ビューを表示
-  //       />
-  //     ))}
-  //   </div>
-  // );
+  useEffect(() => {
+    if (isModalOpen) {
+      console.log("MOdal open");
+    }
+  }, [isModalOpen]);
+
+  const handleMovieCardClick = (movie) => {
+    setSelectedMovie(movie);
+    console.log("Movie info is here:", movie);
+
+    setIsModalOpen(true);
+  };
+
+  // console.log(selectedMovie, "🍎");
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="movies">
       {movies.map((movie) => (
-        <div key={movie.id}>
-          <MovieCard
-            title={movie.title}
-            poster={movie.poster_path}
-            summary={movie.overview}
-            year={movie.release_date}
-            genre={""}
-            onClick={() => setSelectedId(movie.id)} // クリック時に詳細ビューを表示
-          />
-          {/* 選択された映画の詳細ビュー */}
-          {selectedId === movie.id && (
-            <div className="movie-detail">
-              <h2>{movie.title}</h2>
-              <p>{movie.overview}</p>
-              <button onClick={() => setSelectedId(null)}>Close</button>
-            </div>
-          )}
-        </div>
+        <MovieCard
+          key={movie.id}
+          title={movie.title}
+          poster={movie.poster_path}
+          summary={movie.overview}
+          year={movie.release_date}
+          genre={""}
+          onClick={() => handleMovieCardClick(movie)}
+        />
       ))}
+
+      {isModalOpen && selectedMovie && (
+        <div className="modal-backdrop" onClick={closeModal}>
+          <div className="modal-content">
+            <button onClick={closeModal}>Close</button>
+            <div className="description">
+              <h2>{selectedMovie.original_title}</h2>
+              <p>{selectedMovie.release_date}</p>
+              <p>{selectedMovie.overview}</p>
+              <p>{selectedMovie.vote_average}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

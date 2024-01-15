@@ -52,7 +52,7 @@ const RegisterForm = ({ onSubmit }) => {
           className="signup-btn"
           type="submit"
           value="REGISTER"
-          whileHover={{ scale: 1.1, transition: 2.1 }}
+          whileHover={{ scale: 1.1, transition: 1.1 }}
           whileTap={{ scale: 0.9 }}
         />
       </form>
