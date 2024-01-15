@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { MovieCard } from "../../Components";
 import "./UpcomingPage.css";
 import { motion } from "framer-motion";
+import { MovieModal } from "../../Components/MovieModal";
 
 const UpcomingPage = () => {
   const [movies, setMovies] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -19,6 +22,18 @@ const UpcomingPage = () => {
     };
     fetchMovies();
   }, []);
+
+  // MODAL OPEN
+  const handleMovieCardClick = (movie) => {
+    setSelectedMovie(movie);
+    console.log("Movie info is here:", movie);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="upcoming-page">
@@ -38,8 +53,15 @@ const UpcomingPage = () => {
             poster={`https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             summary={movie.overview}
             year={movie.release_date}
+            onClick={() => handleMovieCardClick(movie)}
           />
         ))}
+
+        <MovieModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          movie={selectedMovie}
+        />
       </motion.div>
     </div>
   );
