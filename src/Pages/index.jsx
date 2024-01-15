@@ -5,3 +5,6 @@ export { default as ListPage } from "./ListPage";
 export { default as GenrePage } from "./GenrePage";
 export { default as TopPage } from "./TopPage"
 export { default as UpcomingPage } from "./UpcomingPage"
+export { default as RecommendationsPage } from "./RecommendationsPage"
+export { default as ListRecommendationsPage } from "./ListRecommendationsPage"
+export { default as AddToRecommendationsPage } from "./AddToRecommendationsPage"
