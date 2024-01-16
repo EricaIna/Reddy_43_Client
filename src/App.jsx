@@ -41,7 +41,6 @@ function App() {
               // </ProtectedRoute>
             }
           />
-          <Route path="/userlist" element={<Components.UserList/>}/>
           <Route path="/list" element={<Pages.ListPage />} />
           <Route path="/recommendation" element={<Pages.RecommendationsPage />} />
           <Route path="/recommendation/:id" element={<Pages.ListRecommendationsPage />} />
@@ -51,6 +50,7 @@ function App() {
 
           <Route path="/search/:id" element={<Pages.AddToRecommendationsPage/>}/>  
           <Route path="/scroll" element={<Components.ScrollableSection />} />
+          <Route path="/mylist" element={<Pages.UserListPage />} />
         </Route>
       </Routes>
 

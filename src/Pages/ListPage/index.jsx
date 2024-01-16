@@ -81,26 +81,6 @@ const ListPage = ({ selectedGenre }) => {
     fetchMovies();
   }, []);
 
-  const handleAddToList = async (movieId) => {
-    try {
-        const token = localStorage.getItem('accessToken');  
-        console.log(token)
-      const response = await fetch('http://localhost:4000/user-film-list/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ movies_id: movieId }),
-      });
-
-      const data = await response.json();
-      console.log(data.message);
-    } catch (error) {
-      console.error("Error adding movie to list", error);
-    }
-  };
-
   // MODAL OPEN
   const handleMovieCardClick = (movie) => {
     setSelectedMovie(movie);
@@ -124,7 +104,6 @@ const ListPage = ({ selectedGenre }) => {
           summary={movie.overview}
           year={movie.release_date}
           genre={""}
-          onAddToList={handleAddToList}
           onClick={() => handleMovieCardClick(movie)}
         />
       ))}
