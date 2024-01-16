@@ -10,8 +10,8 @@ const LeaveReview = () => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken")
     const reviewData = {
-        movies_id: parseInt(movieId, 10),
         title,
+        movies_id: parseInt(movieId, 10),
         content,
         rating: parseInt(rating, 10)
       };
