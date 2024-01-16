@@ -73,6 +73,7 @@
 }
 .genre-item:hover {
   scale: 1.05;
+  cursor: pointer;
 }
 
 .genre-img {
@@ -82,4 +83,8 @@
   border-radius: 16px;
   overflow: hidden;
   object-fit: cover;
+}
+
+.genre-item.clicked {
+  border: 2px solid yellow; /* クリック時の外枠を黄色に */
 }
