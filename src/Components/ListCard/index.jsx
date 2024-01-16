@@ -8,12 +8,11 @@ const ListCard = ({ id, title, onDelete }) => {
     };
 
     const handleRedirect = () => {
-        // Redirect to the page with the specific id
         navigate(`/recommendation/${id}`);
       };
   
     return (
-      <div className="movie-list-container">
+    <div className="movie-list-container">
         <div className="title-list"><p className="white-font ">{title}</p></div>
         <div className="container-buttons">
           <button className="button-add" onClick={handleDelete}>Delete</button>

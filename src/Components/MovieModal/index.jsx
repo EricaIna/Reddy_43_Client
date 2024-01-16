@@ -1,28 +1,40 @@
 import React from "react";
 import "./MovieModal.css";
+import { motion } from "framer-motion";
 
 export const MovieModal = ({ isOpen, onClose, movie }) => {
   if (!isOpen || !movie) {
     return null;
   }
 
+  const releaseDate = new Date(movie.release_date);
+  const year = releaseDate.getFullYear();
+
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <motion.div
+      className="modal-backdrop"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="modal-content">
         <button onClick={onClose}>Close</button>
-        <div className="description">
+        <div className="modal-area">
           <img
-            src={movie.poster_path}
+            // src={movie.poster_path}
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.original_title}
             className="modal-img"
           />
           <h2 className="modal-title">{movie.original_title}</h2>
-          <p>{movie.release_date}</p>
-          <p>{movie.overview}</p>
-          <p>{movie.vote_average}</p>
+          {/* <p>{movie.release_date}</p> */}
+          <p>{year}</p>
+          <p className="modal-rate">Rate : {movie.vote_average}</p>
+          <p className="modal-description">{movie.overview}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

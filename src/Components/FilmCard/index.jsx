@@ -9,6 +9,7 @@ const FilmCard = ({ id,movie_id, title,onDelete }) => {
 
     
     return (
+
       <div className="movie-list-container">
         <div className="title-list"><p className="white-font">{title}</p></div>
         <div className="container-buttons">
@@ -17,6 +18,7 @@ const FilmCard = ({ id,movie_id, title,onDelete }) => {
           {/* <button onClick={handleRedirect}>View Details</button> */}
         </div>
       </div>
+
     );
   };
   

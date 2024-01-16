@@ -52,7 +52,7 @@ export const GenreImage = ({ genreName }) => {
   const imageUrl = imageMap[formattedGenreName];
 
   return (
-    <div role="res">
+    <div>
     <motion.img
       src={imageUrl}
       alt={genreName}
