@@ -20,25 +20,34 @@
   background-color: white;
   padding: 20px;
   border-radius: 5px;
-  height: 600px;
+  min-height: 600px;
   width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.description {
+.modal-area {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   color: black;
+  padding-top: 40px;
 }
 
 .modal-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  padding: 10px;
+  text-align: center;
 }
 .modal-img {
   width: 200px;
   height: 260px;
   object-fit: cover;
+}
+.modal-rate {
+  font-size: 24px;
+}
+.modal-description {
+  padding: 30px;
 }
 
 /* Modal Close Button */
