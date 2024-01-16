@@ -30,7 +30,7 @@ export const DropdownMenu = () => {
         {isOpen ? <CloseIcon /> : <HamburgerIcon />}
       </button>
       {isOpen && (
-        <div className="menu-content">
+        <div className="menu-content" data-testid="custom">
           <motion.div
             className="main-rect"
             initial={{ opacity: 0 }}
@@ -46,6 +46,12 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
+                <Link to="movies/recent" onClick={closeMenu}>
+                  NEW AND POPULAR
+                </Link>
+              </li>
+              <li>
+                <ArrowIcon />
                 <Link to="/genre" onClick={closeMenu}>
                   MOVIE GENRES
                 </Link>
@@ -57,13 +63,10 @@ export const DropdownMenu = () => {
               <li>
                 <ArrowIcon />
                 <Link to="/recommendation" onClick={closeMenu}>
-                  FILM RECOMMENDATIONS
+                  RECOMMENDATIONS
                 </Link>
               </li>
-              <li>
-                <ArrowIcon />
-                NEW AND POPULAR
-              </li>
+
               <li>
                 <ArrowIcon />
                 <Link to="/list" onClick={closeMenu}>
