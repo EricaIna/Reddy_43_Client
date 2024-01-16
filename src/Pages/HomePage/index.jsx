@@ -6,7 +6,7 @@ import "./HomePage.css";
 import { motion } from "framer-motion";
 import GenrePage from "../GenrePage";
 
-import { backgroundScheduler_1 } from "../../assets/transition"
+import { backgroundScheduler_1 } from "../../assets/transition";
 
 import ghostbusters from "../../assets/ghostbusters.png";
 import shining from "../../assets/shining.png";
@@ -14,9 +14,8 @@ import filmfinder from "../../assets/filmfinder.png";
 import UpcomingPage from "../UpcomingPage";
 
 const HomePage = () => {
-
   useEffect(() => {
-    backgroundScheduler_1()
+    backgroundScheduler_1();
   }, []);
 
   return (
@@ -25,12 +24,12 @@ const HomePage = () => {
         <img className="background-image img1" src={ghostbusters}></img>
         <img className="background-image img2" src={shining}></img>
         <img className="background-image img3" src={filmfinder}></img>
-        <h1 className="neon-text">
+        {/* <h1 className="neon-text">
           THE MOVIES
-        </h1>
+        </h1> */}
         <div className="background">
           <h5 className="homepage-h5">
-            A web site for everyone, with something for anyone
+            {/* A web site for everyone, with something for anyone */}
           </h5>
           <div className="btn-area">
             <motion.button
@@ -54,7 +53,7 @@ const HomePage = () => {
       <UpcomingPage />
       <GenrePage />
     </div>
-  )
+  );
 };
 
 export default HomePage;
