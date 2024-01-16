@@ -85,6 +85,9 @@
   object-fit: cover;
 }
 
-.genre-item.clicked {
-  border: 2px solid yellow; /* クリック時の外枠を黄色に */
+.genre-item-selected {
+  background: rgb(255 255 255 / 10%);
+  border: #eeff04 solid 1px;
+  border-radius: 16px;
+  /* box-shadow: 0 0 1px #fff, 0 0 2px #d2e10a, 0 0 3px #d2e10a; */
 }

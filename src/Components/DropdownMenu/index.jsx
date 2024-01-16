@@ -50,12 +50,12 @@ export const DropdownMenu = () => {
                   NEW AND POPULAR
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <ArrowIcon />
                 <Link to="/genre" onClick={closeMenu}>
                   MOVIE GENRES
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <ArrowIcon />
                 <Link to="/mylist" onClick={closeMenu}>
