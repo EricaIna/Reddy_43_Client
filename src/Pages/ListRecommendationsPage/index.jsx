@@ -107,10 +107,10 @@ const removeMovie = (movies_list, movie_index) => {
 
   return (
     <>
-        <h2 className="white_h2">{list.title}</h2>
+        <h2 className="list-h1">{list.title}</h2>
 
 
-
+    <div className="list-and-form">
       {list.movies?.map((movie, index) => (
         <FilmCard
             key={index}  
@@ -123,14 +123,16 @@ const removeMovie = (movies_list, movie_index) => {
         />
       ))}
 
+      <div className="buttons-rec">
+        <button type="button" className="button-recommend"  onClick={handleRecomend}>
+            Recomend a movie
+          </button>
 
-      <button type="button" onClick={handleRecomend}>
-          Recomend a movie
-        </button>
-
-      <button type="button" onClick={handleSearch}>
-          Search a movie to add into the list
-        </button>
+        <button type="button" className="button-recommend"  onClick={handleSearch}>
+            Search a movie to add into the list
+          </button>
+      </div>
+      </div>
 
     </>
   )
