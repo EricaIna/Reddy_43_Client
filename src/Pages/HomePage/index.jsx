@@ -8,6 +8,11 @@ import GenrePage from "../GenrePage";
 import UpcomingPage from "../UpcomingPage";
 
 const HomePage = () => {
+
+  useEffect(() => {
+    backgroundScheduler_1()
+  }, []);
+
   return (
     <>
       <div className="homePage">

@@ -1,6 +1,5 @@
 .homePage {
   height: 100vh;
-  background-image: url("../../assets/Group.png");
   background-size: cover;
 }
 
@@ -11,6 +10,29 @@
   height: 700px;
   justify-content: center;
   align-items: flex-end;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: 1s;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.img1 {
+  z-index: -1;
+}
+
+.img2 {
+  z-index: -2;
+}
+
+.img3 {
+  z-index: -3;
 }
 
 .homepage-h5 {
@@ -75,6 +97,7 @@ video {
   border-radius: 10px;
   border: none;
   color: #393838;
+  border: solid 2px #393838;
 }
 
 .btn-area a {
