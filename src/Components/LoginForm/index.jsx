@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <h1 className="ligin-h1">LOGIN</h1>
+      <h1 className="login-h1">LOGIN</h1>
       <form role="form" onSubmit={handleSubmit} className="form-area">
         <input
           className="input-area"
