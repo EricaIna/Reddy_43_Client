@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieModal.css";
 import { motion } from "framer-motion";
-import AddToListButton from "../AddToListButton";
+import { AddToListButton } from "..";
 
 export const MovieModal = ({ isOpen, onClose, movie, id }) => {
   if (!isOpen || !movie) {

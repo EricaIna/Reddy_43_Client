@@ -59,6 +59,7 @@ function App() {
             element={<Pages.AddToRecommendationsPage />}
           />
           <Route path="/scroll" element={<Components.ScrollableSection />} />
+          <Route path="/review" element={<Components.LeaveReview />} />
           <Route path="/mylist" element={<Pages.UserListPage />} />
         </Route>
       </Routes>
