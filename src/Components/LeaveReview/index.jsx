@@ -10,10 +10,10 @@ const LeaveReview = () => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken")
     const reviewData = {
-        movies_id: parseInt(movieId, 10), // Ensure movies_id is an integer
+        movies_id: parseInt(movieId, 10),
         title,
         content,
-        rating: parseInt(rating, 10) // Ensure rating is an integer
+        rating: parseInt(rating, 10)
       };
 
     try {
@@ -21,23 +21,21 @@ const LeaveReview = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // Assuming token is stored in localStorage
+          'Authorization': `Bearer ${token}` 
         },
         body: JSON.stringify(reviewData),
       });
 
       if (!response.ok) {
-        const errorDetails = await response.json(); // Assuming the server sends JSON response with error details
+        const errorDetails = await response.json(); 
         console.error('Server responded with:', errorDetails);
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
   
       const data = await response.json();
       console.log('Review submitted:', data);
-      // Additional logic for success
     } catch (error) {
       console.error('Error posting review:', error);
-      // Additional logic for error
     }
   };
 
