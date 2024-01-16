@@ -1,22 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const FilmCard = ({ id, title, onDelete }) => {
-    const navigate = useNavigate();
+
+const FilmCard = ({ id,movie_id, title,onDelete }) => {
+    console.log("Type of movie_id= ", typeof movie_id,"Type of id",typeof id)
     const handleDelete = () => {
-      onDelete(id);
+      onDelete(id,movie_id);
     };
 
-    const handleRedirect = () => {
-        // Redirect to the page with the specific id
-        navigate(`/recommendation/${id}`);
-      };
-  
+    
     return (
       <div>
         <p className="color_white">{title}</p>
         <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleRedirect}>View Details</button>
+        {/* <button onClick={handleRedirect}>View Details</button> */}
       </div>
     );
   };
