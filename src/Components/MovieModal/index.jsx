@@ -12,14 +12,15 @@ export const MovieModal = ({ isOpen, onClose, movie }) => {
         <button onClick={onClose}>Close</button>
         <div className="description">
           <img
-            src={movie.poster_path}
+            // src={movie.poster_path}
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.original_title}
             className="modal-img"
           />
           <h2 className="modal-title">{movie.original_title}</h2>
           <p>{movie.release_date}</p>
           <p>{movie.overview}</p>
-          <p>{movie.vote_average}</p>
+          <p>Rate : {movie.vote_average}</p>
         </div>
       </div>
     </div>
