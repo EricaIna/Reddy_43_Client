@@ -38,7 +38,7 @@ const UserListPage = () => {
     }
 
     if (!userMovies.length) {
-        return <div>No movies in your list.</div>;
+        return <div data-testid="movieList">No movies in your list.</div>;
     }
 
     return (

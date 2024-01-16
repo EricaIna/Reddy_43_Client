@@ -12,7 +12,7 @@ const ListCard = ({ id, title, onDelete }) => {
       };
   
     return (
-    <div className="movie-list-container">
+    <div role="card" className="movie-list-container">
         <div className="title-list"><p className="white-font ">{title}</p></div>
         <div className="container-buttons">
           <button className="button-add" onClick={handleDelete}>Delete</button>

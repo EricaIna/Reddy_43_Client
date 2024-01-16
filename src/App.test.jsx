@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { screen, render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import userEvent from "@testing-library/user-event";
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
@@ -21,11 +22,8 @@ describe('App', () => {
     });
   
     it('renders the Home page by default', () => {
-      const hasImg = screen.getByRole('img')
-      expect(hasImg).toBeInTheDocument()
+      const homePage = screen.getByText(/discover/i);
+      expect(homePage).toBeInTheDocument();
     });
   
   });
-
-
-// this will break as soon as the homepage is changed but it can easily be re worked
