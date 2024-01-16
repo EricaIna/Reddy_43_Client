@@ -13,7 +13,7 @@ const FilmCard = ({ id, title, onDelete }) => {
       };
   
     return (
-      <div>
+      <div role="card">
         <p className="color_white">{title}</p>
         <button onClick={handleDelete}>Delete</button>
         <button onClick={handleRedirect}>View Details</button>

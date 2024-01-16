@@ -30,7 +30,7 @@ export const DropdownMenu = () => {
         {isOpen ? <CloseIcon /> : <HamburgerIcon />}
       </button>
       {isOpen && (
-        <div className="menu-content">
+        <div className="menu-content" data-testid="custom">
           <motion.div
             className="main-rect"
             initial={{ opacity: 0 }}
