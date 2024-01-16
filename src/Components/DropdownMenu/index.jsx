@@ -58,7 +58,9 @@ export const DropdownMenu = () => {
               </li>
               <li>
                 <ArrowIcon />
-                MY LIST
+                <Link to="/mylist" onClick={closeMenu}>
+                  MY LIST
+                </Link>
               </li>
               <li>
                 <ArrowIcon />
