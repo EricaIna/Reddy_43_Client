@@ -62,12 +62,12 @@ const AddToRecommendationsPage = () => {
 
   return (
     <>
-      <form>
-        <label className="white_font">
+      <form className="form-container">
+        <label className="label-new-list white-font">
           Title of a movie to search & add to the list of recommendations:
-          <input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} />
+          <input type="text" className="input-title" value={newText} onChange={(e) => setNewText(e.target.value)} />
         </label>
-        <button type="button" onClick={handleSearch}>
+        <button className="button-add" type="button" onClick={handleSearch}>
           Search
         </button>
       </form>
@@ -75,10 +75,12 @@ const AddToRecommendationsPage = () => {
       <ul>
         {list?.map((movie, index) => (
           <li key={index}>
-            <p><a href="#" onClick={() => handleAddMovieHref(movie.movie_id) }>{movie.title}</a></p>
-            <p>{movie.genres}</p>
-            <p>{movie.release_date}</p>
-            <p>{movie.overview}</p>
+            <div className="movie-description">
+              <div><p><a href="#" onClick={() => handleAddMovieHref(movie.movie_id) }>{movie.title}</a></p></div>
+              <div className="movie-genres-rec "><p>{movie.genres}</p></div>
+              <div className="movie-release-rec"><p>{movie.release_date}</p></div>
+              <div className="movie-overview-rec"><p>{movie.overview}</p></div>
+            </div>
           </li>
         ))}
       </ul>

@@ -1,13 +1,5 @@
 
- /* 
-.white_font{
-    color:white
- } 
 
-
-  button {
-    color:black
-  }  */
   .container{
     display: flex;
     flex-direction: column;
@@ -18,8 +10,22 @@
 
   .list-h1 {
     color: #eeff04;
+    font-size: 5rem;
+    padding-left: 50px;
   }
 
+  .movie-list-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  .container-buttons{
+    display: flex;
+  }
   .button-add {
     font-family: "Big Shoulders Display", sans-serif;
     width: 130px;
@@ -30,63 +36,46 @@
     border-radius: 10px;
     border: none;
     color: #393838;
+
+    
+    font-size: 2rem;
+    text-decoration: none;
   }
   .input-title{
     width: 300px;
     height: 50px;
     border-radius: 10px;
+    margin-left: 20px;
+    width:500px;
   }
-/* 
-  .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f8f9fa;
+
+  .title-list{
+    font-size: 40px;
+    border: 2px solid #eeff04;
+     border-radius: 10px;
+    width:600px;
+
   }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #343a40;
-  }
-  
+
   .form-container {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-  
-  .label {
+
+  .label-new-list {
     display: block;
-    margin-bottom: 10px;
-    color: #343a40;
+    
+    font-size: 1.5rem;
+   
   }
-  
-  .input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+  .list-and-form {
+    margin-top: 100px;
   }
-  
-  .button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  .input-title{
+    font-size: 1.5rem;
   }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .list-card {
-    border: 1px solid #ced4da;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
- */
+
+
