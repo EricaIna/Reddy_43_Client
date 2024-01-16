@@ -15,8 +15,8 @@ const ListCard = ({ id, title, onDelete }) => {
     return (
       <div>
         <p className="white_font">{title}</p>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleRedirect}>View Details</button>
+        <button className="button-add" onClick={handleDelete}>Delete</button>
+        <button className="button-add" onClick={handleRedirect}>View Details</button>
       </div>
     );
   };

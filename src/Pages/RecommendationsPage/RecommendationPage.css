@@ -1,9 +1,92 @@
 
-
- .white_font{
+ /* 
+.white_font{
     color:white
  } 
 
+
   button {
     color:black
+  }  */
+  .container{
+    display: flex;
+    flex-direction: column;
   }
+  .white-font {
+    color: #fff;
+  }
+
+  .list-h1 {
+    color: #eeff04;
+  }
+
+  .button-add {
+    font-family: "Big Shoulders Display", sans-serif;
+    width: 130px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #d2e10a;
+    margin: 30px 10px;
+    border-radius: 10px;
+    border: none;
+    color: #393838;
+  }
+  .input-title{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+  }
+/* 
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #343a40;
+  }
+  
+  .form-container {
+    margin-top: 20px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .list-card {
+    border: 1px solid #ced4da;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+ */
