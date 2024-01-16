@@ -94,27 +94,30 @@ const ListPage = ({ selectedGenre }) => {
   };
 
   return (
-    <div className="movies">
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          poster={movie.poster_path}
-          summary={movie.overview}
-          year={movie.release_date}
-          genre={""}
-          onClick={() => handleMovieCardClick(movie)}
-        />
-      ))}
+    <>
+      <div className="divider"></div>
+      <div className="movies">
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster={movie.poster_path}
+            summary={movie.overview}
+            year={movie.release_date}
+            genre={""}
+            onClick={() => handleMovieCardClick(movie)}
+          />
+        ))}
 
-      <MovieModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        movie={selectedMovie}
-        id={selectedMovie?.id}
-      />
-    </div>
+        <MovieModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          movie={selectedMovie}
+          id={selectedMovie?.id}
+        />
+      </div>
+    </>
   );
 };
 

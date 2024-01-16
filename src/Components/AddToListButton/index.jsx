@@ -22,6 +22,9 @@ const AddToListButton = ({ movieId, onSuccess }) => {
     } catch (error) {
       console.error("Error adding movie to list", error);
     }
+    // } catch (error) {
+    //   console.error("Error adding movie to list", error);
+    // }
   };
 
   return (
