@@ -41,10 +41,8 @@ const UserMovieList = () => {
   const addToUserList = async (movieId) => {
     try {
       await axios.post('http://localhost:4000/user-film-list/add', { movie_id: movieId });
-      // Update UI accordingly
     } catch (error) {
       console.error('Error adding movie to list:', error);
-      // Handle error
     }
   };
 
@@ -57,7 +55,7 @@ const UserMovieList = () => {
   };
 
   return (
-    <div>
+    <div data-testid="movies-list-1">
       {movies.map(movie => (
         <div key={movie.id}>
           <h3>{movie.title}</h3>

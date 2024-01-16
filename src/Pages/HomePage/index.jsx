@@ -25,10 +25,10 @@ const HomePage = () => {
         <img className="background-image img1" src={ghostbusters}></img>
         <img className="background-image img2" src={shining}></img>
         <img className="background-image img3" src={filmfinder}></img>
+        <div className="background">
         <h1 className="neon-text">
           THE MOVIES
         </h1>
-        <div className="background">
           <h5 className="homepage-h5">
             A web site for everyone, with something for anyone
           </h5>
