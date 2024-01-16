@@ -9,11 +9,16 @@ const FilmCard = ({ id,movie_id, title,onDelete }) => {
 
     
     return (
-      <div role="card">
-        <p className="color_white">{title}</p>
-        <button onClick={handleDelete}>Delete</button>
-        {/* <button onClick={handleRedirect}>View Details</button> */}
+
+      <div className="movie-list-container">
+        <div className="title-list"><p className="white-font">{title}</p></div>
+        <div className="container-buttons">
+          <button className="button-add"  onClick={handleDelete}>Delete</button>
+
+          {/* <button onClick={handleRedirect}>View Details</button> */}
+        </div>
       </div>
+
     );
   };
   

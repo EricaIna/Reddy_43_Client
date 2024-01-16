@@ -12,10 +12,12 @@ const ListCard = ({ id, title, onDelete }) => {
       };
   
     return (
-      <div role="card">
-        <p className="white_font">{title}</p>
-        <button className="button-add" onClick={handleDelete}>Delete</button>
-        <button className="button-add" onClick={handleRedirect}>View Details</button>
+    <div className="movie-list-container">
+        <div className="title-list"><p className="white-font ">{title}</p></div>
+        <div className="container-buttons">
+          <button className="button-add" onClick={handleDelete}>Delete</button>
+          <button className="button-add" onClick={handleRedirect}>View Details</button>
+        </div>
       </div>
     );
   };

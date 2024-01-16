@@ -85,6 +85,7 @@ const RecommendationsPage = () => {
   return (
     <div className="container">
       <h1 className="title list-h1 ">Lists of movies</h1>
+      <div className="list-and-form">
       {list.map((lis) => (
         <ListCard
             key={lis.id}
@@ -97,15 +98,16 @@ const RecommendationsPage = () => {
 
 
     
-      <form className="form-container">
-        <label className="label white-font">
-          New Title:
-          <input type="text"  className="input-title" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
+      <form className="form-container" onSubmit={handleAddToList}>
+        <label className="label-new-list white-font">
+          Name of your new list:
+          <input type="text"  className="input-title" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} required />
         </label>
-        <button type="button" onClick={handleAddToList}  className="button-add">
-          Add to List
+        <button type="submit"   className="button-add">
+          Add
         </button>
       </form>
+      </div> 
     </div>
   );
 };
