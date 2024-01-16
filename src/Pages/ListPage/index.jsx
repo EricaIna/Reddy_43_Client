@@ -112,6 +112,7 @@ const ListPage = ({ selectedGenre }) => {
         isOpen={isModalOpen}
         onClose={closeModal}
         movie={selectedMovie}
+        id={selectedMovie?.id}
       />
     </div>
   );
