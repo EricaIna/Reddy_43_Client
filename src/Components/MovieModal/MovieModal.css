@@ -17,12 +17,13 @@
 
 /* Modal Content */
 .modal-content {
-  background-color: white;
+  background-color: #333;
   padding: 20px;
   border-radius: 5px;
   min-height: 600px;
   width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #d2e10a;
 }
 .modal-area {
   display: flex;
@@ -30,7 +31,8 @@
   justify-content: space-around;
   align-items: center;
   color: black;
-  padding-top: 40px;
+
+  color: white;
 }
 
 .modal-title {
@@ -39,8 +41,8 @@
   text-align: center;
 }
 .modal-img {
-  width: 200px;
-  height: 260px;
+  width: 300px;
+  height: 360px;
   object-fit: cover;
 }
 .modal-rate {
@@ -48,14 +50,19 @@
 }
 .modal-description {
   padding: 30px;
+  font-family: ui-monospace;
+}
+.modal-year {
+  font-size: 24px;
+  padding-left: 5px;
 }
 
 /* Modal Close Button */
 .modal-content button {
-  background-color: #f44336;
+  background-color: #d2e10a;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
 }

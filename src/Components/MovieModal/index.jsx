@@ -19,7 +19,7 @@ export const MovieModal = ({ isOpen, onClose, movie }) => {
       exit={{ opacity: 0 }}
     >
       <div className="modal-content">
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose}>✖️</button>
         <div className="modal-area">
           <img
             // src={movie.poster_path}
@@ -27,10 +27,13 @@ export const MovieModal = ({ isOpen, onClose, movie }) => {
             alt={movie.original_title}
             className="modal-img"
           />
-          <h2 className="modal-title">{movie.original_title}</h2>
+          <h2 className="modal-title">
+            {movie.original_title}
+            <span className="modal-year">({year})</span>
+          </h2>
           {/* <p>{movie.release_date}</p> */}
-          <p>{year}</p>
-          <p className="modal-rate">Rate : {movie.vote_average}</p>
+
+          <p className="modal-rate">Rate : {movie.vote_average.toFixed(1)}</p>
           <p className="modal-description">{movie.overview}</p>
         </div>
       </div>
