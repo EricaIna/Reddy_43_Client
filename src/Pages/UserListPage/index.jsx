@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { MovieCard } from "../../Components";
 import "./UserListPage.css";
+import { MovieModal } from "../../Components/MovieModal";
 
 const UserListPage = () => {
   const [userMovies, setUserMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  //MODAL
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const fetchUserMovies = async () => {
@@ -42,8 +46,20 @@ const UserListPage = () => {
     return <div className="no-movie">No movies in your list.</div>;
   }
 
+  // MODAL OPEN
+  const handleMovieCardClick = (movie) => {
+    setSelectedMovie(movie);
+    console.log("Movie info is here:", movie);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
+  };
+
   return (
-    <div>
+    <>
       <h1 className="Mylist-h1">Your Movie List</h1>
       <div className="movie-list">
         {userMovies.map((movie) => (
@@ -55,10 +71,17 @@ const UserListPage = () => {
             summary={movie.overview}
             year={movie.release_date}
             genre={""}
+            onClick={() => handleMovieCardClick(movie)}
           />
         ))}
+        <MovieModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          movie={selectedMovie}
+          id={selectedMovie?.id}
+        />
       </div>
-    </div>
+    </>
   );
 };
 

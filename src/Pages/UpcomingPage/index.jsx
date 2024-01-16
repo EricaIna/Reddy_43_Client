@@ -43,7 +43,7 @@ const UpcomingPage = () => {
         className="movie-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.2 }}
+        transition={{ duration: 2.0, delay: 1.0 }}
       >
         {movies.map((movie) => (
           <MovieCard
