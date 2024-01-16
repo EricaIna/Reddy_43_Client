@@ -1,7 +1,15 @@
 import React from "react";
 import { AddToListButton } from "../";
 import "./MovieCard.css";
-export const MovieCard = ({ id, title, poster, summary, year, genre, onClick, }) => {
+export const MovieCard = ({
+  id,
+  title,
+  poster,
+  summary,
+  year,
+  genre,
+  onClick,
+}) => {
   return (
     <div role="card" className="card" onClick={onClick}>
       <img src={poster} alt={title} />
@@ -9,7 +17,7 @@ export const MovieCard = ({ id, title, poster, summary, year, genre, onClick, })
       {/* <p className="summary">{summary}</p> */}
       <p className="year">{year.substring(0, 4)}</p>
       <p>{genre}</p>
-      <AddToListButton movieId={id} onSuccess={(message) => console.log(message)} />
+      {/* <AddToListButton movieId={id} onSuccess={(message) => console.log(message)} /> */}
     </div>
   );
 };

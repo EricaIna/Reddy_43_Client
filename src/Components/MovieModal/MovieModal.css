@@ -58,7 +58,7 @@
 }
 
 /* Modal Close Button */
-.modal-content button {
+.modal-close {
   background-color: #d2e10a;
   color: #fff;
   border: none;
@@ -67,7 +67,10 @@
   cursor: pointer;
 }
 
-/* Modal Close Button Hover */
-.modal-content button:hover {
-  background-color: #d32f2f;
+.add-to-list-btn {
+  background-color: #d2e10a;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
