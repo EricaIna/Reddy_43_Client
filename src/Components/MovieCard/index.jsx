@@ -18,7 +18,6 @@ export const MovieCard = ({
       {/* <p className="summary">{summary}</p> */}
       <p className="year">{year}</p>
       <p>{genre}</p>
-      {/* <AddToListButton movieId={id} onSuccess={(message) => console.log(message)} /> */}
     </div>
   );
 };
