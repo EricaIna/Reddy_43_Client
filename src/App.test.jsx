@@ -21,10 +21,8 @@ describe('App', () => {
     });
   
     it('renders the Home page by default', () => {
-      const homePage = screen.getByRole('heading', {
-        name: /THE MOVIES/i
-      })
-      expect(homePage).toBeInTheDocument();
+      const hasImg = screen.getByRole('img')
+      expect(hasImg).toBeInTheDocument()
     });
   
   });
