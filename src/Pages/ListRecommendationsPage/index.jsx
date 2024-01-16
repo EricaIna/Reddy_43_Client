@@ -125,7 +125,7 @@ const removeMovie = (movies_list, movie_index) => {
 
 
       <button type="button" onClick={handleRecomend}>
-          Recomend a movie
+          Recommend a movie
         </button>
 
       <button type="button" onClick={handleSearch}>
