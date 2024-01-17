@@ -92,12 +92,13 @@ const RecommendationsPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      className="reco-body"
     >
       <h1 className="title list-h1 ">Lists of movies</h1>
       <div className="container">
         <form className="form-container" onSubmit={handleAddToList}>
           <label className="label-new-list white-font">
-            Name of your new list:
+            Create a new list
             <input
               type="text"
               className="nameOfnewList"

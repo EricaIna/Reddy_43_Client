@@ -1,3 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.reco-body {
+  height: 100vh;
+  background-image: url("../../assets/filmfinder-reco.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  cursor: pointer;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -64,6 +79,13 @@
 }
 
 /* SPECIFIC Personal LIST PAGE */
+.personal-body {
+  height: 100vh;
+  background-image: url("../../assets/filmfinder-reco.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .buttons-rec {
   display: flex;
   flex-direction: row;
@@ -88,11 +110,11 @@
 
 .personal-list {
   color: #eeff04;
-  font-size: 5rem;
+  font-size: 4rem;
   padding-left: 50px;
   margin-bottom: 50px;
   text-align: center;
-  margin-top: 30px;
+  padding-top: 40px;
 }
 
 .personalList-area {
@@ -106,7 +128,7 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
-  width: 600px;
+  width: 80%;
   margin: 0 auto;
   padding: 10px;
 }
@@ -176,6 +198,7 @@
   font-size: 5rem;
   padding-left: 50px;
   margin-bottom: 50px;
+  margin-top: 40px;
 }
 
 .center-label {
@@ -293,6 +316,7 @@
 .result-movie-title {
   font-size: 2rem;
   padding: 2px;
+  font-weight: bold;
 }
 
 .result-movie-title a {

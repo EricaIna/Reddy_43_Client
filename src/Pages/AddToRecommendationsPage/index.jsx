@@ -120,14 +120,18 @@ const AddToRecommendationsPage = () => {
           <li key={index}>
             <div className="movie-description">
               <div className="movie-title-rec">
-                <p className="result-movie-title">
+                <motion.p
+                  className="result-movie-title"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <a
                     href="#"
                     onClick={() => handleAddMovieHref(movie.movie_id)}
                   >
                     {movie.title}
                   </a>
-                </p>
+                </motion.p>
               </div>
               <div className="movie-genres-rec">
                 <p>{movie.genres}</p>

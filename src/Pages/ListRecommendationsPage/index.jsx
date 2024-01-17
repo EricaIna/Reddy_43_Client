@@ -104,7 +104,7 @@ const ListRecommendationsPage = () => {
   };
 
   return (
-    <>
+    <div className="personal-body">
       <h2 className="personal-list">{list.title}</h2>
       <div className="personalList-area">
         <div className="buttons-rec">
@@ -140,7 +140,7 @@ const ListRecommendationsPage = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

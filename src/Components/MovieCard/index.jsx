@@ -17,7 +17,7 @@ export const MovieCard = ({
       <h3 className="title">{title}</h3>
       {/* <p className="summary">{summary}</p> */}
       <p className="year">{year}</p>
-      <p>{genre}</p>
+      <p className="card-genre">{genre}</p>
     </div>
   );
 };
