@@ -40,7 +40,7 @@ const LeaveReview = () => {
   };
 
   return (
-    <div>
+    <div role='review'>
       <h2>Leave a Review</h2>
       <form onSubmit={handleSubmit}>
         <div>
