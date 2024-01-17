@@ -12,7 +12,7 @@ const ListCard = ({ id, title, onDelete }) => {
   };
 
   return (
-    <div className="list-name-container">
+    <div role="card" className="list-name-container">
       <div className="title-list">
         <p className="list-name">{title}</p>
       </div>

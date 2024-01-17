@@ -1,6 +1,7 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, it } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute.jsx'; // Replace this with the actual path to your component
 
 describe('Authentication Flow', () => {

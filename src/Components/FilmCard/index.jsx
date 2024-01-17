@@ -7,7 +7,7 @@ const FilmCard = ({ id, movie_id, title, onDelete }) => {
   };
 
   return (
-    <div className="movie-list-container">
+    <div role="card" className="movie-list-container">
       <div className="added-movie-area">
         <p className="white-font">{title}</p>
       </div>
