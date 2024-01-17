@@ -54,11 +54,12 @@
 import React, { useState, useEffect } from "react";
 import "./MovieModal.css";
 import { motion } from "framer-motion";
-import { AddToListButton, ReviewModal } from "..";
+import { AddToListButton, ReviewModal, ViewReviews } from "..";
 
 export const MovieModal = ({ isOpen, onClose, movie, id }) => {
   const [userMovies, setUserMovies] = useState([]);
   const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showViewReviewsModal, setShowViewReviewsModal] = useState(false);
 
   useEffect(() => {
     // Only fetch user movies if the modal is open and movie is available
@@ -100,6 +101,10 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
     e.stopPropagation();
   };
 
+  const toggleViewReviewsModal = () => {
+    setShowViewReviewsModal(!showViewReviewsModal);
+  };
+
   // Conditional rendering moved inside return
   if (!isOpen || !movie) {
     return null;
@@ -127,6 +132,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
           ✖️
         </button>
         <button onClick={toggleReviewModal}>Leave Review</button>
+        <button onClick={toggleViewReviewsModal}>View Reviews</button>
         <div className="modal-area">
           <img
             // src={movie.poster_path}
@@ -155,6 +161,12 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
         
         </div>
       </div>
+      {showViewReviewsModal && (
+        <div className="view-reviews-modal">
+          <ViewReviews movieId={id} />
+          <button onClick={toggleViewReviewsModal}>Close Reviews</button>
+        </div>
+      )}
       <ReviewModal
         isOpen={showReviewModal}
         onClose={toggleReviewModal}
