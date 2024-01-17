@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Mylist-h1 {
+  font-size: 5rem;
+  color: #eeff04;
+  padding-left: 50px;
+  margin-top: 30px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+
+.no-movie {
+  color: #eeff04;
+  font-size: 3rem;
+  text-align: center;
+  padding: 50px;
+}

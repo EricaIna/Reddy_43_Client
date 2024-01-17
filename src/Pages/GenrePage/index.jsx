@@ -3,15 +3,27 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ListPage from "../ListPage";
 import GenreImage from "../../Components/GenreImage";
+import { useLocation } from "react-router-dom";
 
 const GenrePage = () => {
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState([]);
+
+  //check url location of page
+  const location = useLocation();
 
   const handleGenreClick = (genre) => {
-    setSelectedGenre(genre);
+    setSelectedGenre((prevSelectedGenres) => {
+      // Check if the genre is already in the selected genres list
+      if (prevSelectedGenres.includes(genre.name)) {
+        // If it is, return a new array excluding this genre
+        return prevSelectedGenres.filter((g) => g !== genre.name);
+      } else {
+        // If it's not, add this genre to the array
+        return [...prevSelectedGenres, genre.name];
+      }
+    });
     console.log(`Genre clicked: ${genre.name}`);
-    // Add any action you want to perform on click
   };
 
   useEffect(() => {
@@ -19,8 +31,6 @@ const GenrePage = () => {
       try {
         const response = await fetch("http://localhost:4000/genres");
         const data = await response.json();
-        console.log(data);
-
         if (Array.isArray(data)) {
           setGenres(data);
         } else {
@@ -67,28 +77,35 @@ const GenrePage = () => {
             variants={container}
           >
             {genres.length > 0 &&
-              genres.map((genre, index) => (
-                <motion.li
-                  key={genre.id}
-                  className="genre-item"
-                  onClick={() => handleGenreClick(genre)}
-                  whileTap={{ scale: 0.9, duration: 0.2 }}
-                  variants={item}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{
-                    ease: "easeOut",
-                    duration: 1.5,
-                    delay: index * 0.1,
-                  }}
-                >
-                  <GenreImage genreName={genre.name} />
-                </motion.li>
-              ))}
+              genres.map((genre, index) => {
+                const isSelected = selectedGenre.includes(genre.name);
+                return (
+                  <motion.li
+                    key={genre.id}
+                    className={
+                      isSelected ? "genre-item-selected" : "genre-item"
+                    }
+                    onClick={() => handleGenreClick(genre)}
+                    whileTap={{ scale: 0.9, duration: 0.2 }}
+                    variants={item}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{
+                      ease: "easeOut",
+                      duration: 3.0,
+                      delay: index * 0.1,
+                    }}
+                  >
+                    <GenreImage genreName={genre.name} />
+                  </motion.li>
+                );
+              })}
           </motion.div>
         </motion.ul>
 
-        <ListPage selectedGenre={selectedGenre} />
+        {location.pathname !== "/genre" && (
+          <ListPage selectedGenre={selectedGenre} />
+        )}
       </div>
     </div>
   );

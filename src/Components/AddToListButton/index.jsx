@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const AddToListButton = ({ movieId, onSuccess }) => {
   const handleAddToList = async () => {
@@ -25,9 +26,15 @@ const AddToListButton = ({ movieId, onSuccess }) => {
   };
 
   return (
-    <button onClick={handleAddToList} className="add-to-list-btn">
+    <motion.button
+      onClick={handleAddToList}
+      className="add-to-list-btn"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.5 }}
+    >
       Add to List
-    </button>
+    </motion.button>
   );
 };
 

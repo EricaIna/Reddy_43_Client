@@ -8,4 +8,6 @@ export {default as ListCard} from "./ListCard"
 export {default as FilmCard} from "./FilmCard"
 export {default as AddToListButton} from "./AddToListButton"
 export {default as LeaveReview} from "./LeaveReview"
+export {default as ReviewModal} from "./ReviewModal"
+export {default as ViewReviews} from "./ViewReviews"
 
