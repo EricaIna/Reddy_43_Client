@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FilmCard } from "../../Components";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const AddToRecommendationsPage = () => {
   const { id } = useParams();
 
@@ -75,15 +75,31 @@ const AddToRecommendationsPage = () => {
             onChange={(e) => setNewText(e.target.value)}
           />
         </label>
-        <button className="button-add" type="button" onClick={handleSearch}>
+        <motion.button
+          className="button-add"
+          type="button"
+          onClick={handleSearch}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           Search
-        </button>
-        <button className="button-back" onClick={handleRedirect}>
+        </motion.button>
+        <motion.button
+          className="button-back"
+          onClick={handleRedirect}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           Back to the list
-        </button>
+        </motion.button>
       </form>
 
-      <ul className="many-movies">
+      <motion.ul
+        className="many-movies"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <li>
           <div className="movie-description-hat">
             <div className="movie-title-rec hat-table">
@@ -125,7 +141,7 @@ const AddToRecommendationsPage = () => {
             </div>
           </li>
         ))}
-      </ul>
+      </motion.ul>
     </>
   );
 };
