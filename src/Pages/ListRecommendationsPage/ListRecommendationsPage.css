@@ -1,113 +1,67 @@
-.white_par{
-    color: white;
-    font-size: 20px;
+.white_par {
+  color: white;
+  font-size: 20px;
 }
-.white_h2{
-    color: white;
-    font-size: 40px;
-
+.white_h2 {
+  color: white;
+  font-size: 40px;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-  }
-  .white-font {
-    color: #fff;
-  }
+.button-recommend {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 400px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #d2e10a;
+  margin: 30px 10px;
+  border-radius: 10px;
+  border: none;
+  color: #393838;
 
-  .list-h1 {
-    color: #eeff04;
-    font-size: 5rem;
-    padding-left: 50px;
-  }
+  font-size: 2rem;
+  text-decoration: none;
+}
 
-  .movie-list-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.buttons-rec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
-  }
+.input-title {
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 500px;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
 
-  .container-buttons{
-    display: flex;
-  }
-  .button-add {
-    font-family: "Big Shoulders Display", sans-serif;
-    width: 130px;
-    height: 50px;
-    margin: 0 auto;
-    background-color: #d2e10a;
-    margin: 30px 10px;
-    border-radius: 10px;
-    border: none;
-    color: #393838;
+.label-new-list {
+  display: block;
 
-    
-    font-size: 2rem;
-    text-decoration: none;
-  }
+  font-size: 1.5rem;
+}
+.list-and-form {
+  margin-top: 20px;
+}
+.input-title {
+  font-size: 1.5rem;
+}
 
-  .button-recommend{
-    font-family: "Big Shoulders Display", sans-serif;
-    width: 450px;
-    height: 50px;
-    margin: 0 auto;
-    background-color: #d2e10a;
-    margin: 30px 10px;
-    border-radius: 10px;
-    border: none;
-    color: #393838;
+.personal-list {
+  color: #eeff04;
+  font-size: 5rem;
+  padding-left: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  margin-top: 30px;
+}
 
-    
-    font-size: 2rem;
-    text-decoration: none;
-
-  }
-
-  .buttons-rec {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Adjust as needed to center vertically */
-  }
-  
-  .input-title{
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    margin-left: 20px;
-    width:500px;
-  }
-
-  .title-list{
-    font-size: 40px;
-    border: 2px solid #eeff04;
-     border-radius: 10px;
-    width:600px;
-
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .label-new-list {
-    display: block;
-    
-    font-size: 1.5rem;
-   
-  }
-  .list-and-form {
-    margin-top: 100px;
-  }
-  .input-title{
-    font-size: 1.5rem;
-  }
+.personalList-area {
+  width: 80%;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #63645949;
+}

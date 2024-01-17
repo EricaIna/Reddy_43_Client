@@ -1,162 +1,126 @@
-
-
-
-.container{
-    display: flex;
-    flex-direction: column;
-  }
-  .white-font {
-    color: #fff;
-  }
-
-  .list-h1 {
-    color: #eeff04;
-    font-size: 5rem;
-    padding-left: 50px;
-  }
-
-  .movie-list-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-  }
-
-  .container-buttons{
-    display: flex;
-  }
-  .button-back{
-    font-family: "Big Shoulders Display", sans-serif;
-    width: 200px;
-    height: 50px;
-    margin: 0 auto;
-    background-color: #d2e10a;
-    margin: 30px 10px;
-    border-radius: 10px;
-    border: none;
-    color: #393838;
-
-    
-    font-size: 2rem;
-    text-decoration: none;
-  }
-  .button-add {
-    font-family: "Big Shoulders Display", sans-serif;
-    width: 130px;
-    height: 50px;
-    margin: 0 auto;
-    background-color: #d2e10a;
-    margin: 30px 10px;
-    border-radius: 10px;
-    border: none;
-    color: #393838;
-
-    
-    font-size: 2rem;
-    text-decoration: none;
-  }
-  .input-title{
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    margin-left: 20px;
-    width:500px;
-    padding-left: 20px;
-  }
-
-  .title-list{
-    font-size: 40px;
-    border: 2px solid #eeff04;
-     border-radius: 10px;
-    width:600px;
-
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 100px;
-  }
-
-  .label-new-list {
-    display: block;
-    
-    font-size: 1.5rem;
-   
-  }
-  .list-and-form {
-    margin-top: 100px;
-  }
-  .input-title{
-    font-size: 1.5rem;
-  }
-
-  .movie-description
-  
-  { 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    gap:30px;
-    margin:auto;
-    border: 2px solid #eeff04;
-    border-radius: 10px;
-    width:80vw;
-  }
-
-  .movie-description-hat
-  
-  { 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    gap:30px;
-    margin:auto;
-    
-
-  }
-
-  .center-label{
-    align-items: center;
-  }
-
-  .many-movies{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-    font-size: 1.5rem;
-  }
-  .movie-overview-rec{
-    width:800px;
-    padding: 20px;
-    
-  }
-.hat-table{
-    text-align: center;
-    font-size: 30px;
+.container {
+  display: flex;
+  flex-direction: column;
 }
-  .movie-release-rec{
-    width:200px;
-    text-align: center;
-  }
+.white-font {
+  color: #fff;
+}
 
-  .movie-genres-rec{
-    width:100px;
-    
-  }
-  .movie-title-rec{
-    width:200px;
-    text-align: center;
-    
-  }
+.list-h1 {
+  color: #eeff04;
+  font-size: 5rem;
+  padding-left: 50px;
+  margin-bottom: 50px;
+}
 
+.movie-list-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
+.container-buttons {
+  display: flex;
+}
+.button-back {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #d2e10a;
+  margin: 30px 10px;
+  border-radius: 10px;
+  border: none;
+  color: #393838;
+
+  font-size: 2rem;
+  text-decoration: none;
+}
+/* .button-add {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 130px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #d2e10a;
+  margin: 10px 10px;
+  border-radius: 10px;
+  border: none;
+  color: #393838;
+
+  font-size: 2rem;
+  text-decoration: none;
+} */
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.label-new-list {
+  display: block;
+
+  font-size: 1.5rem;
+}
+.list-and-form {
+  margin-top: 30px;
+}
+
+.movie-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 30px;
+  margin: auto;
+  border: 2px solid #eeff04;
+  border-radius: 10px;
+  width: 80vw;
+}
+
+.movie-description-hat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 30px;
+  margin: auto;
+}
+
+.center-label {
+  align-items: center;
+}
+
+.many-movies {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+.movie-overview-rec {
+  width: 800px;
+  padding: 20px;
+}
+.hat-table {
+  text-align: center;
+  font-size: 30px;
+}
+.movie-release-rec {
+  width: 200px;
+  text-align: center;
+}
+
+.movie-genres-rec {
+  width: 100px;
+}
+.movie-title-rec {
+  width: 200px;
+  text-align: center;
+}
