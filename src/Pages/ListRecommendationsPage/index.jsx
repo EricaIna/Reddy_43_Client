@@ -48,7 +48,6 @@ const ListRecommendationsPage = () => {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
         },
-        // body: JSON.stringify({ title: newTitle }) 
       };
 
       const response = await fetch(`http://localhost:4000/recommendations_list_recommend/${id}`, options);
@@ -81,20 +80,14 @@ const removeMovie = (movies_list, movie_index) => {
       };
       
       const response = await fetch(`http://localhost:4000/recommendations_list_manage/${id}/${movie_id}`, options);
-      console.log("response after deleting=", response)
+      const data = await response.json();
+      console.log("response after deleting=", data);
       if (response.ok) {
         // Remove the deleted item from the list
         console.log("list.movies_id = ", list.movies_id)
         console.log("list.movies = ", list.movies)
-        //const newList = JSON.parse(JSON.stringify(list));
         const movie_index = list.movies_id.indexOf(movie_id)
-        //console.log("newList = ", newList)
         setList((prevList) => removeMovie(prevList, movie_index));
-
-        //{title: prevList.title;
-        //    movies_id: prevList.movies_id.filter(item => item.id !== movie_id);
-        //    movies: prevList.movies.filter((value, index) => movie_index !== index)}
-
         console.log(`Movie with ID ${movie_id} deleted successfully`);
       } else {
         console.log(`Error deleting movie with ID ${movie_id} in the list ${id}`);

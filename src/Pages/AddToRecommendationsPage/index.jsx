@@ -14,6 +14,9 @@ const AddToRecommendationsPage = () => {
   const [newText, setNewText] = useState("");
 
   const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate(`/recommendation/${id}`);
+  };
   
   const handleSearch = async () => {
     try {
@@ -62,6 +65,7 @@ const AddToRecommendationsPage = () => {
 
   return (
     <>
+    <h1 className="title list-h1 ">Search and Add</h1>
       <form className="form-container">
         <label className="label-new-list white-font">
           Title of a movie to search & add to the list of recommendations:
@@ -70,20 +74,32 @@ const AddToRecommendationsPage = () => {
         <button className="button-add" type="button" onClick={handleSearch}>
           Search
         </button>
+        <button className="button-back" onClick={handleRedirect}>Back to the list</button>
       </form>
-
-      <ul>
+     
+      <ul className="many-movies">
+      <li>
+        <div className="movie-description-hat">
+              <div className="movie-title-rec hat-table"><p>Movie Title</p></div>
+              <div className="movie-genres-rec hat-table"><p>Genre</p></div>
+              <div className="movie-release-rec hat-table"><p>Release Date</p></div>
+              <div className="movie-overview-rec hat-table"><p>Overview</p></div>
+          </div>
+        </li>
         {list?.map((movie, index) => (
+          
           <li key={index}>
             <div className="movie-description">
-              <div><p><a href="#" onClick={() => handleAddMovieHref(movie.movie_id) }>{movie.title}</a></p></div>
-              <div className="movie-genres-rec "><p>{movie.genres}</p></div>
+              <div className="movie-title-rec"><p><a href="#" onClick={() => handleAddMovieHref(movie.movie_id) }>{movie.title}</a></p></div>
+              <div className="movie-genres-rec"><p>{movie.genres}</p></div>
               <div className="movie-release-rec"><p>{movie.release_date}</p></div>
               <div className="movie-overview-rec"><p>{movie.overview}</p></div>
             </div>
           </li>
+          
         ))}
       </ul>
+      
 
     </>
   )
