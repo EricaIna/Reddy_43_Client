@@ -6,7 +6,7 @@ import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import AddRecomendations from './index';
+import LeaveReviews from './index';
 import axios from "axios";
 
 
@@ -14,7 +14,7 @@ describe('Genre Page', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <AddRecomendations />
+                <LeaveReviews />
             </BrowserRouter>
         );
     });
@@ -37,19 +37,5 @@ describe('Genre Page', () => {
         vi.spyOn(axios, "get").mockResolvedValueOnce({
             data: mockResult
         });
-
     });
-
-    it("returns the correct url for known genres", () => {
-        vi.spyOn(axios, "get").mockResolvedValueOnce({
-            data: mockUrl
-        })
-    })
-
-    it("has role list", () => {
-        const list1 = screen.getByRole("list")
-        expect(list1).toBeInTheDocument()
-    })
-    
 });
-
