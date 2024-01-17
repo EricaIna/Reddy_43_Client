@@ -60,6 +60,21 @@
   text-decoration: none;
 }
 
+.view-btn {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 60px;
+  height: 50px;
+
+  background-color: #d2e10a;
+  margin: 10px 10px;
+  border-radius: 50px;
+  border: none;
+  color: #393838;
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 5px;
+}
+
 .nameOfnewList {
   width: 400px;
   height: 50px;
@@ -102,8 +117,9 @@
 }
 
 .added-movie-area {
-  font-size: 40px;
+  font-size: 35px;
   border: 2px solid #eeff04;
   border-radius: 10px;
   width: 600px;
+  padding: 5px;
 }

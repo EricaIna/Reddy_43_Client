@@ -17,7 +17,7 @@ const ListCard = ({ id, title, onDelete }) => {
         <p className="list-name">{title}</p>
       </div>
       <div className="container-buttons">
-        <button className="button-add" onClick={handleRedirect}>
+        <button className="view-btn" onClick={handleRedirect}>
           View
         </button>
         <button className="delete-btn" onClick={handleDelete}>
