@@ -54,10 +54,11 @@
 import React, { useState, useEffect } from "react";
 import "./MovieModal.css";
 import { motion } from "framer-motion";
-import { AddToListButton } from "..";
+import { AddToListButton, ReviewModal } from "..";
 
 export const MovieModal = ({ isOpen, onClose, movie, id }) => {
   const [userMovies, setUserMovies] = useState([]);
+  const [showReviewModal, setShowReviewModal] = useState(false);
 
   useEffect(() => {
     // Only fetch user movies if the modal is open and movie is available
@@ -88,6 +89,17 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
     }
   }, [isOpen, movie]); // Add dependencies here
 
+  const toggleReviewModal = () => {
+    setShowReviewModal(!showReviewModal);
+  };
+  const handleBackdropClick = () => {
+    onClose();
+  };
+
+  const handleModalContentClick = (e) => {
+    e.stopPropagation();
+  };
+
   // Conditional rendering moved inside return
   if (!isOpen || !movie) {
     return null;
@@ -105,15 +117,16 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
   return (
     <motion.div
       className="modal-backdrop"
-      onClick={onClose}
+      onClick={handleBackdropClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="modal-content">
+      <div className="modal-content" onClick={handleModalContentClick}>
         <button onClick={onClose} className="modal-close">
           ✖️
         </button>
+        <button onClick={toggleReviewModal}>Leave Review</button>
         <div className="modal-area">
           <img
             // src={movie.poster_path}
@@ -139,8 +152,14 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
 
           <p className="modal-rate">Rate : {movie.vote_average.toFixed(1)}</p>
           <p className="modal-description">{movie.overview}</p>
+        
         </div>
       </div>
+      <ReviewModal
+        isOpen={showReviewModal}
+        onClose={toggleReviewModal}
+        movieId={id}
+      />
     </motion.div>
   );
 };
