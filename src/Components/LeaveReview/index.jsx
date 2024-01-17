@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const LeaveReview = () => {
-  const [movieId, setMovieId] = useState('');
+const LeaveReview = ({ movieId }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [rating, setRating] = useState('');
@@ -10,12 +9,11 @@ const LeaveReview = () => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken")
     const reviewData = {
+        movies_id: movieId,
         title,
-        movies_id: parseInt(movieId, 10),
         content,
         rating: parseInt(rating, 10)
       };
-
     try {
       const response = await fetch('http://localhost:4000/reviews', {
         method: 'POST',
@@ -43,7 +41,7 @@ const LeaveReview = () => {
     <div>
       <h2>Leave a Review</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        {/* <div>
           <label>Movie ID:</label>
           <input
             type="number"
@@ -51,7 +49,7 @@ const LeaveReview = () => {
             onChange={(e) => setMovieId(e.target.value)}
             placeholder='id'
           />
-        </div>
+        </div> */}
         <div>
           <label>Title:</label>
           <input
