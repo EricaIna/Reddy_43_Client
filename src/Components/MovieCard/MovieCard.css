@@ -21,6 +21,16 @@
   padding: 0 20px 10px;
 }
 
+.card .title {
+  display: none;
+}
+.card .year {
+  display: none;
+}
+.card-genre {
+  display: none;
+}
+
 /* .card button {
   width: 200px;
   height: 30px;
