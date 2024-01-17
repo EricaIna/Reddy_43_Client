@@ -52,7 +52,7 @@ const ListPage = ({ selectedGenre }) => {
             title={movie.title}
             poster={movie.poster_path}
             summary={movie.overview}
-            year={movie.release_date}
+            year={new Date(movie.release_date).getFullYear()} // Extract only the year
             genre={movie.genres.join(", ")}
             onClick={() => handleMovieCardClick(movie)}
           />
