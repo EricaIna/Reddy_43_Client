@@ -1,28 +1,84 @@
-// import React from "react";
+// import React, { useState, useEffect } from "react";
 // import "./MovieModal.css";
 // import { motion } from "framer-motion";
-// import { AddToListButton } from "..";
+// import { AddToListButton, ReviewModal, ViewReviews } from "..";
 
 // export const MovieModal = ({ isOpen, onClose, movie, id }) => {
+//   const [userMovies, setUserMovies] = useState([]);
+//   const [showReviewModal, setShowReviewModal] = useState(false);
+//   const [showViewReviewsModal, setShowViewReviewsModal] = useState(false);
+
+//   useEffect(() => {
+//     // Only fetch user movies if the modal is open and movie is available
+//     if (isOpen && movie) {
+//       const fetchUserMovies = async () => {
+//         try {
+//           const token = localStorage.getItem("accessToken");
+//           console.log(token);
+//           const response = await fetch("http://localhost:4000/user-film-list", {
+//             method: "GET",
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//             },
+//           });
+
+//           if (!response.ok) {
+//             throw new Error("Could not fetch user movies");
+//           }
+
+//           const data = await response.json();
+//           setUserMovies(data);
+//         } catch (error) {
+//           console.error("Error fetching user's movie list:", error);
+//         }
+//       };
+
+//       fetchUserMovies();
+//     }
+//   }, [isOpen, movie]); // Add dependencies here
+
+//   const toggleReviewModal = () => {
+//     setShowReviewModal(!showReviewModal);
+//   };
+//   const handleBackdropClick = () => {
+//     onClose();
+//   };
+
+//   const handleModalContentClick = (e) => {
+//     e.stopPropagation();
+//   };
+
+//   const toggleViewReviewsModal = () => {
+//     setShowViewReviewsModal(!showViewReviewsModal);
+//   };
+
+//   // Conditional rendering moved inside return
 //   if (!isOpen || !movie) {
 //     return null;
 //   }
-
 //   const releaseDate = new Date(movie.release_date);
 //   const year = releaseDate.getFullYear();
+//   const isMovieInList = userMovies.some(
+//     (userMovie) => userMovie.id === movie.id
+//   )
+//     ? "Yes"
+//     : "No";
 
+//   console.log("USER MOVIES NOW", userMovies);
+//   console.log("MODEL MOVIES NOW", movie);
 //   return (
 //     <motion.div
 //       className="modal-backdrop"
-//       onClick={onClose}
+//       onClick={handleBackdropClick}
 //       initial={{ opacity: 0 }}
 //       animate={{ opacity: 1 }}
 //       exit={{ opacity: 0 }}
 //     >
-//       <div className="modal-content">
+//       <div className="modal-content" onClick={handleModalContentClick}>
 //         <button onClick={onClose} className="modal-close">
 //           ✖️
 //         </button>
+
 //         <div className="modal-area">
 //           <img
 //             // src={movie.poster_path}
@@ -30,11 +86,26 @@
 //             alt={movie.original_title}
 //             className="modal-img"
 //           />
-//           <AddToListButton
-//             movieId={id}
-//             onSuccess={(message) => console.log(message)}
-//           />
-
+//           {isMovieInList === "No" ? (
+//             <AddToListButton
+//               saved={isMovieInList}
+//               movieId={id}
+//               onSuccess={(message) => console.log("THIS MESS", message)}
+//             />
+//           ) : (
+//             <p className="on-your-list">Movie on your list ✔</p>
+//           )}
+//           <div className="review-btns">
+//             <button onClick={toggleReviewModal} className="leave-review-btn">
+//               Leave Review
+//             </button>
+//             <button
+//               onClick={toggleViewReviewsModal}
+//               className="view-review-btn"
+//             >
+//               Read Reviews
+//             </button>
+//           </div>
 //           <h2 className="modal-title">
 //             {movie.original_title}
 //             <span className="modal-year">({year})</span>
@@ -45,6 +116,19 @@
 //           <p className="modal-description">{movie.overview}</p>
 //         </div>
 //       </div>
+//       {showViewReviewsModal && (
+//         <div className="view-reviews-modal">
+//           <ViewReviews movieId={id} />
+//           <button onClick={toggleViewReviewsModal} className="close-review-btn">
+//             Close Reviews
+//           </button>
+//         </div>
+//       )}
+//       <ReviewModal
+//         isOpen={showReviewModal}
+//         onClose={toggleReviewModal}
+//         movieId={id}
+//       />
 //     </motion.div>
 //   );
 // };
@@ -60,6 +144,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
   const [userMovies, setUserMovies] = useState([]);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showViewReviewsModal, setShowViewReviewsModal] = useState(false);
+  const [updateTrigger, setUpdateTrigger] = useState(0); // New state to track updates
 
   useEffect(() => {
     // Only fetch user movies if the modal is open and movie is available
@@ -88,7 +173,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
 
       fetchUserMovies();
     }
-  }, [isOpen, movie]); // Add dependencies here
+  }, [isOpen, movie, updateTrigger]); // Add dependencies here
 
   const toggleReviewModal = () => {
     setShowReviewModal(!showReviewModal);
@@ -103,6 +188,10 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
 
   const toggleViewReviewsModal = () => {
     setShowViewReviewsModal(!showViewReviewsModal);
+  };
+
+  const handleUpdate = () => {
+    setUpdateTrigger((prev) => prev + 1); // Increment to trigger useEffect
   };
 
   // Conditional rendering moved inside return
@@ -131,8 +220,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
         <button onClick={onClose} className="modal-close">
           ✖️
         </button>
-        <button onClick={toggleReviewModal}>Leave Review</button>
-        <button onClick={toggleViewReviewsModal}>View Reviews</button>
+
         <div className="modal-area">
           <img
             // src={movie.poster_path}
@@ -142,14 +230,27 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
           />
           {isMovieInList === "No" ? (
             <AddToListButton
-              saved={isMovieInList}
+              //saved={isMovieInList}
               movieId={id}
-              onSuccess={(message) => console.log("THIS MESS", message)}
+              onSuccess={() => {
+                console.log("Button clicked, updating list");
+                handleUpdate();
+              }}
             />
           ) : (
-            <p>Movie on your list ✔</p>
+            <p className="on-your-list">Movie on your list ✔</p>
           )}
-
+          <div className="review-btns">
+            <button onClick={toggleReviewModal} className="leave-review-btn">
+              Leave Review
+            </button>
+            <button
+              onClick={toggleViewReviewsModal}
+              className="view-review-btn"
+            >
+              Read Reviews
+            </button>
+          </div>
           <h2 className="modal-title">
             {movie.original_title}
             <span className="modal-year">({year})</span>
@@ -158,13 +259,14 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
 
           <p className="modal-rate">Rate : {movie.vote_average.toFixed(1)}</p>
           <p className="modal-description">{movie.overview}</p>
-        
         </div>
       </div>
       {showViewReviewsModal && (
         <div className="view-reviews-modal">
           <ViewReviews movieId={id} />
-          <button onClick={toggleViewReviewsModal}>Close Reviews</button>
+          <button onClick={toggleViewReviewsModal} className="close-review-btn">
+            Close Reviews
+          </button>
         </div>
       )}
       <ReviewModal
