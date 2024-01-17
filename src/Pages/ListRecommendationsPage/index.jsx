@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FilmCard } from "../../Components";
 import { useNavigate } from "react-router-dom";
-import "./ListRecommendationsPage.css";
+// import "./RecommendationPage.css";
 
 const ListRecommendationsPage = () => {
   const { id } = useParams();
@@ -124,7 +124,7 @@ const ListRecommendationsPage = () => {
             Search for a movie and add to list
           </button>
         </div>
-        <div className="list-and-form">
+        <div className="personal-movie-list">
           {list.movies?.map((movie, index) => (
             <FilmCard
               key={index}

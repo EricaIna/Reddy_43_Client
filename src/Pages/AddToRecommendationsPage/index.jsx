@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import { FilmCard } from "../../Components";
 import { useNavigate } from "react-router-dom";
 
-import "./AddToRecommendationsPage.css";
-
 const AddToRecommendationsPage = () => {
   const { id } = useParams();
 

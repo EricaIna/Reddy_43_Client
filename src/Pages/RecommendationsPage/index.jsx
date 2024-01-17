@@ -106,15 +106,17 @@ const RecommendationsPage = () => {
             Add
           </button>
         </form>
-        <div className="list-and-form">
-          {list.map((lis) => (
-            <ListCard
-              key={lis.id}
-              id={lis.id}
-              title={lis.title}
-              onDelete={handleDeleteFromList}
-            />
-          ))}
+        <div className="list-form-wrapper">
+          <div className="list-and-form">
+            {list.map((lis) => (
+              <ListCard
+                key={lis.id}
+                id={lis.id}
+                title={lis.title}
+                onDelete={handleDeleteFromList}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
