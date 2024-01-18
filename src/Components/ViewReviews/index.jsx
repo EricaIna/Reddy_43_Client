@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const ViewReviews = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
@@ -38,7 +39,7 @@ const ViewReviews = ({ movieId }) => {
   }
 
   return (
-    <div role="review" className="leave-review">
+    <motion.div role="review" className="viewReview">
       <h2>Reviews</h2>
       {reviews.length > 0 ? (
         <ul>
@@ -56,7 +57,7 @@ const ViewReviews = ({ movieId }) => {
       ) : (
         <p>No reviews available for this movie.</p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

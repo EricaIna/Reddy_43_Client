@@ -24,7 +24,7 @@ button {
 }
 .form-container {
   display: flex;
-  flex-direction: row;
+
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -36,6 +36,19 @@ button {
   color: #fff;
 }
 
+.create-button-add {
+  font-family: "Big Shoulders Display", sans-serif;
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #d2e10a;
+  margin-left: 40px;
+  border-radius: 10px;
+  border: none;
+  color: #393838;
+  font-size: 2rem;
+  text-decoration: none;
+}
 .list-h1 {
   color: #eeff04;
   font-size: 5rem;

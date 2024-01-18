@@ -107,7 +107,7 @@ const RecommendationsPage = () => {
               required
             />
           </label>
-          <button type="submit" className="button-add">
+          <button type="submit" className="create-button-add">
             Add
           </button>
         </form>
