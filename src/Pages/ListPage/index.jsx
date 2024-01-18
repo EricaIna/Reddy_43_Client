@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { MovieCard } from "../../Components/MovieCard";
 import { MovieModal } from "../../Components/MovieModal";
 import "./ListPage.css";
+import { motion } from "framer-motion";
 
 const ListPage = ({ selectedGenre }) => {
   const [movies, setMovies] = useState([]);
@@ -44,7 +45,12 @@ const ListPage = ({ selectedGenre }) => {
   return (
     <>
       <div className="divider"></div>
-      <div className="movies">
+      <motion.div
+        className="movies"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2.0, delay: 1.0 }}
+      >
         {filteredMovies.map((movie) => (
           <MovieCard
             key={movie.id}
@@ -64,7 +70,7 @@ const ListPage = ({ selectedGenre }) => {
           movie={selectedMovie}
           id={selectedMovie?.id}
         />
-      </div>
+      </motion.div>
     </>
   );
 };

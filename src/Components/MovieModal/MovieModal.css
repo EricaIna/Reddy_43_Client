@@ -259,3 +259,13 @@ textarea {
   cursor: pointer;
   font-size: 2rem;
 }
+
+.remove-from-list-btn {
+  margin-top: 10px;
+  background-color: #e1800a;
+
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
