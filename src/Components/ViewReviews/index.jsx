@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const ViewReviews = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
@@ -10,9 +11,11 @@ const ViewReviews = ({ movieId }) => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch(`http://localhost:4000/reviews/${movieId}`);
+        const response = await fetch(
+          `http://localhost:4000/reviews/${movieId}`
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch reviews');
+          throw new Error("Failed to fetch reviews");
         }
         const data = await response.json();
         setReviews(data.reviews);
@@ -36,7 +39,7 @@ const ViewReviews = ({ movieId }) => {
   }
 
   return (
-    <div>
+    <motion.div role="review" className="viewReview">
       <h2>Reviews</h2>
       {reviews.length > 0 ? (
         <ul>
@@ -45,14 +48,16 @@ const ViewReviews = ({ movieId }) => {
               <h3>{review.Title}</h3>
               <p>Rating: {review.Rating}</p>
               <p>{review.Content}</p>
-              <p>Reviewed on: {new Date(review.Timestamp).toLocaleDateString()}</p>
+              <p>
+                Reviewed on: {new Date(review.Timestamp).toLocaleDateString()}
+              </p>
             </li>
           ))}
         </ul>
       ) : (
         <p>No reviews available for this movie.</p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

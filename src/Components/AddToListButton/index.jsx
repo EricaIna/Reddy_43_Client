@@ -18,7 +18,7 @@ const AddToListButton = ({ movieId, onSuccess }) => {
       console.log(data.message);
 
       if (onSuccess) {
-        onSuccess(data.message);
+        onSuccess();
       }
     } catch (error) {
       console.error("Error adding movie to list", error);
@@ -26,15 +26,11 @@ const AddToListButton = ({ movieId, onSuccess }) => {
   };
 
   return (
-    <motion.button
-      onClick={handleAddToList}
-      className="add-to-list-btn"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ duration: 0.5 }}
-    >
-      Add to List
-    </motion.button>
+    <button onClick={handleAddToList} className="add-to-list-btn">
+      <motion.p whileHover={{ scale: 1.1 }} className="add-to-list-text">
+        Add to List
+      </motion.p>
+    </button>
   );
 };
 
