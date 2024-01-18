@@ -102,6 +102,9 @@ const AddToRecommendationsPage = () => {
       >
         <li>
           <div className="movie-description-hat">
+          <div className="movie-title-rec hat-table">
+              <p>         </p>
+            </div>
             <div className="movie-title-rec hat-table">
               <p>Movie Title</p>
             </div>
@@ -118,21 +121,32 @@ const AddToRecommendationsPage = () => {
         </li>
         {list?.map((movie, index) => (
           <li key={index}>
+             
             <div className="movie-description">
+              <div className="movie-title-rec">
+                    <motion.button
+                  className="button-add"
+                  type="button"
+                  onClick={() => handleAddMovieHref(movie.movie_id)} 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >Add
+                  </motion.button>
+
+              </div>
+
               <div className="movie-title-rec">
                 <motion.p
                   className="result-movie-title"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <a
-                    href="#"
-                    onClick={() => handleAddMovieHref(movie.movie_id)}
-                  >
+        
                     {movie.title}
-                  </a>
+                  
                 </motion.p>
               </div>
+
               <div className="movie-genres-rec">
                 <p>{movie.genres}</p>
               </div>
