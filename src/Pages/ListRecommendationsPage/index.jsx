@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FilmCard } from "../../Components";
 import { useNavigate } from "react-router-dom";
-// import "./RecommendationPage.css";
+import { motion } from "framer-motion";
 
 const ListRecommendationsPage = () => {
   const { id } = useParams();
@@ -104,25 +104,29 @@ const ListRecommendationsPage = () => {
   };
 
   return (
-    <>
+    <div className="personal-body">
       <h2 className="personal-list">{list.title}</h2>
       <div className="personalList-area">
         <div className="buttons-rec">
-          <button
+          <motion.button
             type="button"
             className="button-recommend"
             onClick={handleRecomend}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
           >
             Recommend me a movie
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
             type="button"
             className="button-recommend"
             onClick={handleSearch}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
           >
             Search for a movie and add to list
-          </button>
+          </motion.button>
         </div>
         <div className="personal-movie-list">
           {list.movies?.map((movie, index) => (
@@ -136,7 +140,7 @@ const ListRecommendationsPage = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

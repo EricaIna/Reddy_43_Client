@@ -68,7 +68,7 @@ const UserListPage = () => {
   }
 
   if (!userMovies.length) {
-    return <div className="no-movie">No movies in your list.</div>;
+    return <div data-testid="movieList" className="no-movie">No movies in your list.</div>;
   }
 
   // MODAL OPEN

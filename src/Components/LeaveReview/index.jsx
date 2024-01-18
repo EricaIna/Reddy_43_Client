@@ -1,44 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const LeaveReview = ({ movieId }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [rating, setRating] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("accessToken")
+    const token = localStorage.getItem("accessToken");
     const reviewData = {
-        movies_id: movieId,
-        title,
-        content,
-        rating: parseInt(rating, 10)
-      };
+      movies_id: movieId,
+      title,
+      content,
+      rating: parseInt(rating, 10),
+    };
     try {
-      const response = await fetch('http://localhost:4000/reviews', {
-        method: 'POST',
+      const response = await fetch("http://localhost:4000/reviews", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` 
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(reviewData),
       });
 
       if (!response.ok) {
-        const errorDetails = await response.json(); 
-        console.error('Server responded with:', errorDetails);
+        const errorDetails = await response.json();
+        console.error("Server responded with:", errorDetails);
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       const data = await response.json();
-      console.log('Review submitted:', data);
+      console.log("Review submitted:", data);
     } catch (error) {
-      console.error('Error posting review:', error);
+      console.error("Error posting review:", error);
     }
   };
 
   return (
-    <div>
+    <div role="review" className="leave-review-area">
       <h2>Leave a Review</h2>
       <form onSubmit={handleSubmit}>
         {/* <div>
@@ -50,30 +50,32 @@ const LeaveReview = ({ movieId }) => {
             placeholder='id'
           />
         </div> */}
-        <div>
+        <div className="leave-title">
           <label>Title:</label>
           <input
+            className="custom-input"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder='title'
+            placeholder="title"
           />
         </div>
-        <div>
+        <div className="leave-content">
           <label>Content:</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder='review'
+            placeholder="review"
           ></textarea>
         </div>
-        <div>
+        <div className="leave-rating">
           <label>Rating:</label>
           <input
+            className="rating-num"
             type="number"
             value={rating}
             onChange={(e) => setRating(e.target.value)}
-            placeholder='rating'
+            placeholder="rating"
             min="1"
             max="5"
           />

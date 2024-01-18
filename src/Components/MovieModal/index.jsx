@@ -1,56 +1,3 @@
-// import React from "react";
-// import "./MovieModal.css";
-// import { motion } from "framer-motion";
-// import { AddToListButton } from "..";
-
-// export const MovieModal = ({ isOpen, onClose, movie, id }) => {
-//   if (!isOpen || !movie) {
-//     return null;
-//   }
-
-//   const releaseDate = new Date(movie.release_date);
-//   const year = releaseDate.getFullYear();
-
-//   return (
-//     <motion.div
-//       className="modal-backdrop"
-//       onClick={onClose}
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: 1 }}
-//       exit={{ opacity: 0 }}
-//     >
-//       <div className="modal-content">
-//         <button onClick={onClose} className="modal-close">
-//           ✖️
-//         </button>
-//         <div className="modal-area">
-//           <img
-//             // src={movie.poster_path}
-//             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-//             alt={movie.original_title}
-//             className="modal-img"
-//           />
-//           <AddToListButton
-//             movieId={id}
-//             onSuccess={(message) => console.log(message)}
-//           />
-
-//           <h2 className="modal-title">
-//             {movie.original_title}
-//             <span className="modal-year">({year})</span>
-//           </h2>
-//           {/* <p>{movie.release_date}</p> */}
-
-//           <p className="modal-rate">Rate : {movie.vote_average.toFixed(1)}</p>
-//           <p className="modal-description">{movie.overview}</p>
-//         </div>
-//       </div>
-//     </motion.div>
-//   );
-// };
-
-// export default MovieModal;
-
 import React, { useState, useEffect } from "react";
 import "./MovieModal.css";
 import { motion } from "framer-motion";
@@ -60,6 +7,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
   const [userMovies, setUserMovies] = useState([]);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showViewReviewsModal, setShowViewReviewsModal] = useState(false);
+  const [updateTrigger, setUpdateTrigger] = useState(0); // New state to track updates
 
   useEffect(() => {
     // Only fetch user movies if the modal is open and movie is available
@@ -88,7 +36,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
 
       fetchUserMovies();
     }
-  }, [isOpen, movie]); // Add dependencies here
+  }, [isOpen, movie, updateTrigger]); // Add dependencies here
 
   const toggleReviewModal = () => {
     setShowReviewModal(!showReviewModal);
@@ -105,6 +53,10 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
     setShowViewReviewsModal(!showViewReviewsModal);
   };
 
+  const handleUpdate = () => {
+    setUpdateTrigger((prev) => prev + 1); // Increment to trigger useEffect
+  };
+
   // Conditional rendering moved inside return
   if (!isOpen || !movie) {
     return null;
@@ -119,6 +71,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
 
   console.log("USER MOVIES NOW", userMovies);
   console.log("MODEL MOVIES NOW", movie);
+
   return (
     <motion.div
       className="modal-backdrop"
@@ -131,8 +84,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
         <button onClick={onClose} className="modal-close">
           ✖️
         </button>
-        <button onClick={toggleReviewModal}>Leave Review</button>
-        <button onClick={toggleViewReviewsModal}>View Reviews</button>
+
         <div className="modal-area">
           <img
             // src={movie.poster_path}
@@ -142,12 +94,15 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
           />
           {isMovieInList === "No" ? (
             <AddToListButton
-              saved={isMovieInList}
+              //saved={isMovieInList}
               movieId={id}
-              onSuccess={(message) => console.log("THIS MESS", message)}
+              onSuccess={() => {
+                console.log("Button clicked, updating list");
+                handleUpdate();
+              }}
             />
           ) : (
-            <p>Movie on your list ✔</p>
+            <p className="on-your-list">Movie on your list ✔</p>
           )}
           
           <div>
@@ -161,7 +116,17 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
           />
           )}
           </div>
-
+          <div className="review-btns">
+            <button onClick={toggleReviewModal} className="leave-review-btn">
+              Leave Review
+            </button>
+            <button
+              onClick={toggleViewReviewsModal}
+              className="view-review-btn"
+            >
+              Read Reviews
+            </button>
+          </div>
           <h2 className="modal-title">
             {movie.original_title}
             <span className="modal-year">({year})</span>
@@ -170,14 +135,20 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
 
           <p className="modal-rate">Rate : {movie.vote_average.toFixed(1)}</p>
           <p className="modal-description">{movie.overview}</p>
-        
         </div>
       </div>
       {showViewReviewsModal && (
-        <div className="view-reviews-modal">
+        <motion.div
+          className="view-reviews-modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <ViewReviews movieId={id} />
-          <button onClick={toggleViewReviewsModal}>Close Reviews</button>
-        </div>
+          <button onClick={toggleViewReviewsModal} className="close-review-btn">
+            Close Reviews
+          </button>
+        </motion.div>
       )}
       <ReviewModal
         isOpen={showReviewModal}

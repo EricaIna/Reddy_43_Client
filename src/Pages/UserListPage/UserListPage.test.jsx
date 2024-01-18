@@ -1,24 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect, beforeEach, afterEach, vi, test } from 'vitest';
-import { screen, render, cleanup, fireEvent } from '@testing-library/react';
+import { screen, render, cleanup, fireEvent, waitFor, getByRole, getByTestId, getByText } from '@testing-library/react';
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import AddRecomendations from './index';
+import UserListPage from './index';
 import axios from "axios";
 
 
 describe('Genre Page', () => {
-    beforeEach(() => {
-        render(
-            <BrowserRouter>
-                <AddRecomendations />
-            </BrowserRouter>
-        );
-    });
-
     afterEach(() => {
         cleanup();
     });
@@ -34,22 +26,29 @@ describe('Genre Page', () => {
     }
 
     it("gets data from fetch", async () => {
+        render(
+            <UserListPage/>
+        );
         vi.spyOn(axios, "get").mockResolvedValueOnce({
             data: mockResult
         });
-
+        cleanup();
     });
 
-    it("returns the correct url for known genres", () => {
+    it("return the correct url for known genres", () => {
+        render(
+            <UserListPage/>
+        );
         vi.spyOn(axios, "get").mockResolvedValueOnce({
             data: mockUrl
         })
+        cleanup();
     })
 
-    it("has role list", () => {
-        const list1 = screen.getByRole("list")
-        expect(list1).toBeInTheDocument()
-    })
-    
+    it('should render Loading... when isLoading is true', () => {
+        const { getByText } = render(<UserListPage isLoading={true} />);
+        expect(getByText('Loading...')).toBeInTheDocument();
+        cleanup();
+    });
+
 });
-
