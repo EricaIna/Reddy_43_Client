@@ -6,7 +6,7 @@ import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import LeaveReviews from './index';
+import ViewReviews from './index';
 import axios from "axios";
 
 
@@ -14,7 +14,7 @@ describe('Genre Page', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <LeaveReviews />
+                <ViewReviews />
             </BrowserRouter>
         );
     });
@@ -35,8 +35,4 @@ describe('Genre Page', () => {
         });
     });
 
-    it("has a review role", () => {
-        const reviews = screen.getByRole("review")
-        expect(reviews).toBeInTheDocument()
-    })
 });

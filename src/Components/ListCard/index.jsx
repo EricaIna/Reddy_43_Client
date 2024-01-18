@@ -22,7 +22,7 @@ const ListCard = ({ id, title, onDelete }) => {
       <div className="title-list">
         <p className="list-name">{title}</p>
       </div>
-      <div className="container-buttons">
+      <div role="card" className="container-buttons">
         <motion.button
           className="view-btn"
           onClick={handleRedirect}

@@ -36,7 +36,7 @@ const ViewReviews = ({ movieId }) => {
   }
 
   return (
-    <div role='review'>
+    <div>
       <h2>Reviews</h2>
       {reviews.length > 0 ? (
         <ul>

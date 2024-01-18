@@ -43,7 +43,7 @@
 }
 
 .genre-list::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 /* Track */
 .genre-list::-webkit-scrollbar-track {
