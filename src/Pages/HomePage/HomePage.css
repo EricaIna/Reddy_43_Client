@@ -9,6 +9,9 @@
   height: 100vh;
   justify-content: center;
   align-items: flex-end;
+  background-image: url("../../assets/filmfinder.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .background-image {
