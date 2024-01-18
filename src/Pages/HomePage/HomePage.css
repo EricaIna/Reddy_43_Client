@@ -9,33 +9,22 @@
   height: 100vh;
   justify-content: center;
   align-items: flex-end;
-  background-image: url("../../assets/filmfinder.png");
+  background-image: url("../../assets/Film-Finder2.png");
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
 }
 
-.background-image {
-  position: absolute;
+.background img {
+  /* position: absolute; */
   top: 0;
   left: 0;
   opacity: 1;
   transition: 1s;
-  height: 90vh;
+  height: 50vh;
   width: 100%;
   background-size: cover;
-  object-fit: cover;
-}
-
-.img1 {
-  z-index: -1;
-}
-
-.img2 {
-  z-index: -2;
-}
-
-.img3 {
-  z-index: -3;
+  /* object-fit: cover; */
 }
 
 .homepage-h5 {
@@ -44,45 +33,32 @@
   font-family: "Big Shoulders Display", sans-serif;
 }
 
-.neon-text {
-  font-weight: 400;
-  margin-right: 30px;
-  font-size: 8rem;
-  color: #fff;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 1000px #fff, 0 0 42px #d2e10a,
-    0 0 82px #d2e10a, 0 0 92px #d2e10a, 0 0 102px #d2e10a, 0 0 151px #d2e10a;
-  animation: flicker 2.5s infinite alternate;
-}
-
-@keyframes flicker {
-  0%,
-  18%,
-  22%,
-  25%,
-  53%,
-  57%,
-  100% {
-    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #d2e10a,
-      0 0 80px #d2e10a, 0 0 90px #d2e10a, 0 0 100px #d2e10a, 0 0 150px #d2e10a;
-  }
-
-  55%,
-  65% {
-    text-shadow: none;
-  }
-}
-
 .mainPage-btn {
   font-family: "Big Shoulders Display", sans-serif;
   width: 130px;
   height: 50px;
-  margin: 0 auto;
+  margin: 40px 20px;
   background-color: #d2e10a;
-  margin: 30px 10px;
+
   border-radius: 10px;
   border: none;
   color: #393838;
-  border: solid 2px #393838;
+  /* border: solid 2px #393838; */
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 22px #d2e10a,
+    0 0 8px #d2e10a, 0 0 15px #d2e10a, 0 0 20px #d2e10a, 0 0 60px #d2e10a;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 .btn-area {
