@@ -10,6 +10,18 @@ import UpcomingPage from "../UpcomingPage";
 
 const HomePage = () => {
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="homePage">
       <div className="background-container">
@@ -33,7 +45,11 @@ const HomePage = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <Link to="/login">Sign in</Link>
+              {isLoggedIn ? (
+            <span onClick={handleLogout}>Logout</span>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
             </motion.button>
           </div>
         </div>
