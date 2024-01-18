@@ -4,6 +4,7 @@ const LeaveReview = ({ movieId }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [rating, setRating] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,10 +33,14 @@ const LeaveReview = ({ movieId }) => {
 
       const data = await response.json();
       console.log("Review submitted:", data);
+      setIsSubmitted(true);
     } catch (error) {
       console.error("Error posting review:", error);
     }
   };
+  if (isSubmitted) {
+    return <div role="review" className="leave-review-area" style={{ fontSize: '24px', textAlign: 'center', marginTop: '20px' }}>Thank you for leaving your review!</div>;
+  }
 
   return (
     <div role="review" className="leave-review-area">

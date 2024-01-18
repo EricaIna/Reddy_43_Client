@@ -269,3 +269,14 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.reviewPost {
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+.reviewPost h3 {
+  color:#333;
+  font-size: 1.5rem;
+}
