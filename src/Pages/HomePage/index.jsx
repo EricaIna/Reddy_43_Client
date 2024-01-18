@@ -46,7 +46,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.9 }}
             >
               {isLoggedIn ? (
-            <span onClick={handleLogout}>Logout</span>
+            <p className="logout" onClick={handleLogout}>Logout</p>
           ) : (
             <Link to="/login">Login</Link>
           )}
