@@ -11,7 +11,7 @@ const RemoveFromListButton = ({ movieId, onSuccess }) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ movie_id: movieId }),
+        body: JSON.stringify({ movies_id: movieId }),
       });
 
       const data = await response.json();
