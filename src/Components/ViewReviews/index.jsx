@@ -44,7 +44,7 @@ const ViewReviews = ({ movieId }) => {
       {reviews.length > 0 ? (
         <ul>
           {reviews.map((review) => (
-            <li key={review.id}>
+            <li className="reviewPost" key={review.id}>
               <h3>{review.Title}</h3>
               <p>Rating: {review.Rating}</p>
               <p>{review.Content}</p>
