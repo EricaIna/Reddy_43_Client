@@ -46,7 +46,7 @@ const ViewReviews = ({ movieId }) => {
           {reviews.map((review) => (
             <li className="reviewPost" key={review.id}>
               <h3>{review.Title}</h3>
-              <p>Rating: {review.Rating}</p>
+              <p className="view-review-rate">Rating: {review.Rating}</p>
               <p>{review.Content}</p>
               <p>
                 Reviewed on: {new Date(review.Timestamp).toLocaleDateString()}
