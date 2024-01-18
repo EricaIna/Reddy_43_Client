@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./MovieModal.css";
 import { motion } from "framer-motion";
-import { AddToListButton, ReviewModal, ViewReviews } from "..";
+import { AddToListButton, ReviewModal, ViewReviews, RemoveFromListButton } from "..";
 
-export const MovieModal = ({ isOpen, onClose, movie, id }) => {
+export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUserListPage }) => {
   const [userMovies, setUserMovies] = useState([]);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showViewReviewsModal, setShowViewReviewsModal] = useState(false);
@@ -104,6 +104,18 @@ export const MovieModal = ({ isOpen, onClose, movie, id }) => {
           ) : (
             <p className="on-your-list">Movie on your list ✔</p>
           )}
+          
+          <div>
+          {isUserListPage && onRemoveFromList && (
+          <RemoveFromListButton
+            movieId={id}
+            onSuccess={() => {
+              onRemoveFromList(id);
+              onClose(); // Close the modal after removing
+            }}
+          />
+          )}
+          </div>
           <div className="review-btns">
             <button onClick={toggleReviewModal} className="leave-review-btn">
               Leave Review
