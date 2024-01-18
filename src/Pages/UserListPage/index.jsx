@@ -38,6 +38,31 @@ const UserListPage = () => {
     fetchUserMovies();
   }, []);
 
+  const handleRemoveFromList = async (movieId) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const response = await fetch("http://localhost:4000/user-film-list/remove", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ movie_id: movieId }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to remove the movie from the list");
+      }
+        // Update the userMovies state to reflect the removal
+        setUserMovies((currentMovies) => currentMovies.filter(movie => movie.id !== movieId));
+
+        console.log("Movie removed from the list successfully");
+      } catch (error) {
+        console.error("Error removing movie from list:", error);
+      }
+    }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -79,6 +104,8 @@ const UserListPage = () => {
           onClose={closeModal}
           movie={selectedMovie}
           id={selectedMovie?.id}
+          onRemoveFromList={handleRemoveFromList}
+          isUserListPage={true}
         />
       </div>
     </>
