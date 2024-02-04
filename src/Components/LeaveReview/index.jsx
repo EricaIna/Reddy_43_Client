@@ -16,7 +16,7 @@ const LeaveReview = ({ movieId }) => {
       rating: parseInt(rating, 10),
     };
     try {
-      const response = await fetch("http://localhost:4000/reviews", {
+      const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

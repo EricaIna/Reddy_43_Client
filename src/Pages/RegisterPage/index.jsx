@@ -8,7 +8,7 @@ const RegisterPage = () => {
 
   const handleRegisterSubmit = async (userData) => {
     try {
-      const response = await fetch("http://localhost:4000/signup", {
+      const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

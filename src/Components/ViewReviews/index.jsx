@@ -12,7 +12,7 @@ const ViewReviews = ({ movieId }) => {
       setError(null);
       try {
         const response = await fetch(
-          `http://localhost:4000/reviews/${movieId}`
+          `http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/reviews/${movieId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch reviews");

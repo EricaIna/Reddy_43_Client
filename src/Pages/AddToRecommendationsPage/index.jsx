@@ -26,7 +26,7 @@ const AddToRecommendationsPage = () => {
         body: JSON.stringify({ text: newText }),
       };
 
-      const response = await fetch(`http://localhost:4000/search`, options);
+      const response = await fetch(`http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/search`, options);
       const data = await response.json();
 
       // Update the list with the new data
@@ -51,7 +51,7 @@ const AddToRecommendationsPage = () => {
       };
 
       const response = await fetch(
-        `http://localhost:4000/recommendations_list_manage/${id}/${movie_index}`,
+        `http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list_manage/${id}/${movie_index}`,
         options
       );
 

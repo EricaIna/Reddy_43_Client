@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:4000/login', { 
+      const response = await fetch('http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

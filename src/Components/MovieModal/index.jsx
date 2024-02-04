@@ -16,7 +16,7 @@ export const MovieModal = ({ isOpen, onClose, movie, id, onRemoveFromList, isUse
         try {
           const token = localStorage.getItem("accessToken");
           console.log(token);
-          const response = await fetch("http://localhost:4000/user-film-list", {
+          const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,

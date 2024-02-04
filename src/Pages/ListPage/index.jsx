@@ -12,7 +12,7 @@ const ListPage = ({ selectedGenre }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch("http://localhost:4000/movies");
+        const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/movies");
         const data = await response.json();
         setMovies(data);
       } catch (error) {
