@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await fetch('https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/login', { 
+      const response = await fetch('https://ericainamoviesapi.co.uk/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

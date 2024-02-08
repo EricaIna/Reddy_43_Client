@@ -23,7 +23,7 @@ const ListRecommendationsPage = () => {
         };
 
         const response = await fetch(
-          `https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list/${id}`,
+          `https://ericainamoviesapi.co.uk/recommendations_list/${id}`,
           options
         );
         const data = await response.json();
@@ -50,7 +50,7 @@ const ListRecommendationsPage = () => {
       };
 
       const response = await fetch(
-        `https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list_recommend/${id}`,
+        `https://ericainamoviesapi.co.uk/recommendations_list_recommend/${id}`,
         options
       );
       window.location.reload();
@@ -81,7 +81,7 @@ const ListRecommendationsPage = () => {
       };
 
       const response = await fetch(
-        `https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list_manage/${id}/${movie_id}`,
+        `https://ericainamoviesapi.co.uk/recommendations_list_manage/${id}/${movie_id}`,
         options
       );
       const data = await response.json();

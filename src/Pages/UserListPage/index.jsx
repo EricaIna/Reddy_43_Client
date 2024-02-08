@@ -16,7 +16,7 @@ const UserListPage = () => {
       try {
         const token = localStorage.getItem("accessToken");
         console.log(token);
-        const response = await fetch("https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list", {
+        const response = await fetch("https://ericainamoviesapi.co.uk/user-film-list", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ const UserListPage = () => {
   const handleRemoveFromList = async (movieId) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch("https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list/remove", {
+      const response = await fetch("https://ericainamoviesapi.co.uk/user-film-list/remove", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

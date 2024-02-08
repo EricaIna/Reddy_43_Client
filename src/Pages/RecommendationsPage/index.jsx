@@ -19,7 +19,7 @@ const RecommendationsPage = () => {
 
         console.log("options=", options);
         const response = await fetch(
-          "https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list",
+          "https://ericainamoviesapi.co.uk/recommendations_list",
           options
         );
         const data = await response.json();
@@ -46,7 +46,7 @@ const RecommendationsPage = () => {
       };
 
       const response = await fetch(
-        "https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list",
+        "https://ericainamoviesapi.co.uk/recommendations_list",
         options
       );
       const data = await response.json();
@@ -71,7 +71,7 @@ const RecommendationsPage = () => {
       };
 
       const response = await fetch(
-        `https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/recommendations_list/${id}`,
+        `https://ericainamoviesapi.co.uk/recommendations_list/${id}`,
         options
       );
 
