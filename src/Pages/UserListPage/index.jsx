@@ -23,6 +23,7 @@ const UserListPage = () => {
           },
         });
 
+
         if (!response.ok) {
           throw new Error("Could not fetch user movies");
         }
@@ -50,25 +51,34 @@ const UserListPage = () => {
         body: JSON.stringify({ movie_id: movieId }),
       });
 
+
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to remove the movie from the list");
+        throw new Error(
+          errorData.message || "Failed to remove the movie from the list"
+        );
       }
-        // Update the userMovies state to reflect the removal
-        setUserMovies((currentMovies) => currentMovies.filter(movie => movie.id !== movieId));
+      // Update the userMovies state to reflect the removal
+      setUserMovies((currentMovies) =>
+        currentMovies.filter((movie) => movie.id !== movieId)
+      );
 
-        console.log("Movie removed from the list successfully");
-      } catch (error) {
-        console.error("Error removing movie from list:", error);
-      }
+      console.log("Movie removed from the list successfully");
+    } catch (error) {
+      console.error("Error removing movie from list:", error);
     }
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   if (!userMovies.length) {
-    return <div data-testid="movieList" className="no-movie">No movies in your list.</div>;
+    return (
+      <div data-testid="movieList" className="no-movie">
+        No movies in your list.
+      </div>
+    );
   }
 
   // MODAL OPEN

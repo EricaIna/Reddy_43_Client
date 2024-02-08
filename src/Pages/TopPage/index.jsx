@@ -9,6 +9,7 @@ const TopPage = () => {
     const fetchMovies = async () => {
       try {
         const response = await fetch("https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/movies/top");
+
         const data = await response.json();
         console.log(data);
         setMovies(data.results);

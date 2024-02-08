@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const [registerMessage, setRegisterMessage] = useState('')
+  const [registerMessage, setRegisterMessage] = useState("");
 
   const handleRegisterSubmit = async (userData) => {
     try {
@@ -15,12 +15,12 @@ const RegisterPage = () => {
         },
         body: JSON.stringify(userData),
       });
-
       const data = await response.json();
-      setRegisterMessage('Registration Succesful! Redirecting to Login')
-      setTimeout(()=>{setRegisterMessage('');
-      navigate("/login")}
-      ,3000)
+      setRegisterMessage("Registration Succesful! Redirecting to Login");
+      setTimeout(() => {
+        setRegisterMessage("");
+        navigate("/login");
+      }, 3000);
     } catch (error) {
       console.error("Error during registration:", error);
     }
@@ -29,13 +29,25 @@ const RegisterPage = () => {
   const renderPopupMessage = () => {
     if (registerMessage) {
       return (
-        <div style={{ position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'green', padding: '20px', border: '1px solid black', zIndex: 1000 }}>
+        <div
+          style={{
+            position: "fixed",
+            top: "20%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "green",
+            padding: "20px",
+            border: "1px solid black",
+            zIndex: 1000,
+          }}
+        >
           {registerMessage}
         </div>
-      )} else {
-        return null
-      }}
-
+      );
+    } else {
+      return null;
+    }
+  };
 
   return (
     <div>

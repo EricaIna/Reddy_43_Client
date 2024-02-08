@@ -14,6 +14,7 @@ const AddToListButton = ({ movieId, onSuccess }) => {
         body: JSON.stringify({ movies_id: movieId }),
       });
 
+
       const data = await response.json();
       console.log(data.message);
 
