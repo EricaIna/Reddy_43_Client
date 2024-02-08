@@ -16,12 +16,15 @@ const UserListPage = () => {
       try {
         const token = localStorage.getItem("accessToken");
         console.log(token);
-        const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          "https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Could not fetch user movies");
@@ -41,34 +44,45 @@ const UserListPage = () => {
   const handleRemoveFromList = async (movieId) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch("http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list/remove", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ movie_id: movieId }),
-      });
+      const response = await fetch(
+        "https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/user-film-list/remove",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ movie_id: movieId }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to remove the movie from the list");
+        throw new Error(
+          errorData.message || "Failed to remove the movie from the list"
+        );
       }
-        // Update the userMovies state to reflect the removal
-        setUserMovies((currentMovies) => currentMovies.filter(movie => movie.id !== movieId));
+      // Update the userMovies state to reflect the removal
+      setUserMovies((currentMovies) =>
+        currentMovies.filter((movie) => movie.id !== movieId)
+      );
 
-        console.log("Movie removed from the list successfully");
-      } catch (error) {
-        console.error("Error removing movie from list:", error);
-      }
+      console.log("Movie removed from the list successfully");
+    } catch (error) {
+      console.error("Error removing movie from list:", error);
     }
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   if (!userMovies.length) {
-    return <div data-testid="movieList" className="no-movie">No movies in your list.</div>;
+    return (
+      <div data-testid="movieList" className="no-movie">
+        No movies in your list.
+      </div>
+    );
   }
 
   // MODAL OPEN
