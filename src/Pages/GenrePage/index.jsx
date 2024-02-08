@@ -30,7 +30,7 @@ const GenrePage = () => {
     const fetchGenres = async () => {
       try {
         const response = await fetch(
-          "https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/genres"
+          "http://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/genres"
         );
         const data = await response.json();
         if (Array.isArray(data)) {
