@@ -84,6 +84,7 @@ const ListRecommendationsPage = () => {
         `https://ericainamoviesapi.co.uk/recommendations_list_manage/${id}/${movie_id}`,
         options
       );
+      console.log("TADA")
       const data = await response.json();
       console.log("response after deleting=", data);
       if (response.ok) {

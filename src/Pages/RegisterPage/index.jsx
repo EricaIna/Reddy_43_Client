@@ -52,7 +52,7 @@ const RegisterPage = () => {
   return (
     <div>
       <RegisterForm onSubmit={handleRegisterSubmit} />
-      {renderPopupMessage}
+      {renderPopupMessage()}
     </div>
   );
 };

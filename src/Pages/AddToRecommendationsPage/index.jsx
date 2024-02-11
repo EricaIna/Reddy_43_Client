@@ -26,7 +26,7 @@ const AddToRecommendationsPage = () => {
         body: JSON.stringify({ text: newText }),
       };
 
-      const response = await fetch(`https://moviestest-env-4.eba-t3hctzae.eu-west-2.elasticbeanstalk.com/search`, options);
+      const response = await fetch(`https:///ericainamoviesapi.co.uk/search`, options);
       const data = await response.json();
 
       // Update the list with the new data
